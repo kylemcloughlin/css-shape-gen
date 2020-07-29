@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Shape from './hooks/cssShape.jsx';
 import Size from './hooks/sizeForm.jsx';
+import Colour from './hooks/colourForm.jsx';
 import './App.css';
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         {/* <Shape/> */}
   
         <Size updateSize={handleSize}/>
-
+        <Colour />
       </div>
     </div>
   );
