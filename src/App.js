@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Shape from './hooks/cssShape.jsx';
 import Size from './hooks/sizeForm.jsx';
 import Colour from './hooks/colourForm.jsx';
+import Shadow from './hooks/shadowForm.jsx';
+import Border from './hooks/borderForm.jsx';
 import './App.css';
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
   
         <Size updateSize={handleSize}/>
         <Colour />
+        <Border/>
+        <Shadow/>
       </div>
     </div>
   );

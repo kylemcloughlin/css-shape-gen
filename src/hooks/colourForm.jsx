@@ -20,7 +20,7 @@ function Colour() {
       setClrStyle({ opacity: '1' })
       setImgStyle({ opacity: '.5' }) 
       console.log('else', value)
-
+/// need to finish error handling for this -- so bothe cannot be selected at once and it disable the other while one is selected.
     }
   },[value]);
   
