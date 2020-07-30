@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 function Border() {
   const [value, setValue] = useState(null);
-  const [style, setStyle] = useState ({
+  const [style, setStyle] = useState({
     opacity: '.5'
   });
   useEffect(() => {
@@ -18,12 +18,20 @@ function Border() {
         opacity: '.5'
       });
     }
-  },[value]);
+  }, [value]);
   return (
-    <form className="shape-container-01">
-      <input type="checkbox" onClick={e => {setValue(e.target.checked)}} onSe value='border'/>
-      <h1 style={style}>Border</h1>
-    </form>
+    <div className="shape-container-01">
+      <form>
+        <label style={style}>Border</label>
+        <input type="checkbox" onClick={e => { setValue(e.target.checked) }} onSe value='border' />
+      </form>
+      <form>
+       <label> Border Width</label>
+        <input type='number' />
+        <label> Border Colour</label>
+        <input type='color' />
+      </form>
+    </div>
   );
 }
 
