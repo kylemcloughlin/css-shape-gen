@@ -7,21 +7,31 @@ import Border from './hooks/borderForm.jsx';
 import './App.css';
 
 function App() {
-  const [state, setState] = useState({
-    size: 'number'
-  });
+  const [shapeSize, setShapeSize] = useState(0);
+  const [fill, setFill] = useState({ type: 'color', code: '#444'});
+  const [border, setBorder] = useState({ borderWidth: null, borderColor: null});
+  const [shadow, setShadow] = useState({ shadowBlur: null, ShadowColor: "#444", shadowAlpha: 0});
   const handleSize = x => {
-    console.log(x);
+    
+    setShapeSize({size: Number(x)});
   }
   const handleFill = (x, y) => {
-    console.log(x, y)
-  }
+  setFill({
+    type: x,
+    code: y
+  });
+  };
 
   const handleBorder = (x, y) => {
-    console.log(x, y)
+   setBorder({
+     borderWidth: x,
+     borderColor: y
+   });
   }
   const handleShadow = (x, y) => {
-    console.log(x, y)
+    setShadow({
+      x: '233'
+    })
   }
 
   return (
@@ -30,12 +40,11 @@ function App() {
       <h1>CSS Shape Generator</h1>
       </header>
       <div>
-        {/* <Shape/> */}
-
         <Size updateSize={handleSize}/>
         <Colour updateFill={handleFill}/>
         <Border updateBorder={handleBorder}/>
         <Shadow updateShadow={handleShadow}/>
+        <Shape {...shapeSize} {...fill} {...border} {...shadow}/>
       </div>
     </div>
   );

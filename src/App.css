@@ -46,15 +46,17 @@ height: 100%;
   top: 5em;
   height: 100%;
 }
+*/
+
+
+
 .shape {
   width: 50%;
   height: 50%;
   background-color: aliceblue;
+  position: absolute;
+
 }
- */
-
-
-
 
 
 /* @keyframes App-logo-spin {
