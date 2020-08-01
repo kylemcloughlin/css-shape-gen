@@ -7,10 +7,20 @@ import Border from './hooks/borderForm.jsx';
 import './App.css';
 
 function App() {
-  const [shapeSize, setShapeSize] = useState(0);
-  const [fill, setFill] = useState({ type: 'color', code: '#444'});
-  const [border, setBorder] = useState({ borderWidth: null, borderColor: null});
-  const [shadow, setShadow] = useState({ shadowBlur: null, ShadowColor: "#444", shadowAlpha: 0});
+  const [shape,setShape] = useState({shape: 'square'});
+  const [shapeSize, setShapeSize] = useState({size: `${50}px`});
+  const [fill, setFill] = useState({ type: 'color', fillCode: '#444'});
+  const [bWidth, setBWidth] = useState({ borderWidth: null});
+  const [bColor, setBColor] = useState({ borderColor: null});
+  const [sBlur, setSBlur] = useState({
+    shadowBlue: null
+  })
+  const [scolor, setSColor] = useState({
+    shadowColor: '#444'
+  })
+  const [sAlpha, setSAlpha] = useState({
+    shadowAlpha: 0
+  });
   const handleSize = x => {
     
     setShapeSize({size: Number(x)});
@@ -18,22 +28,41 @@ function App() {
   const handleFill = (x, y) => {
   setFill({
     type: x,
-    code: y
+    fillCode: y
   });
   };
 
   const handleBorder = (x, y) => {
-   setBorder({
-     borderWidth: x,
-     borderColor: y
-   });
+    console.log(x, y);
+    if (x === 1) {
+     return  setBWidth({
+        borderWidth: `${y}px`
+      });
+    } 
+    if (x === 2 ) {
+     return  setBColor({
+        borderColor: y
+      });
+    }
   }
   const handleShadow = (x, y) => {
-    setShadow({
-      x: '233'
-    })
-  }
+       if (x === 1) {
+         return setSBlur({
+           shadowBlur: `${y}px`
+         });
+       }
+       if (x === 2) {
+         return setSColor({
+           shadowColor: y
+         });
 
+       }
+      if (x === 3) {
+        return setSAlpha({
+          shadowAlpha: y
+        });
+   }
+  }
   return (
       <div className="App">
       <header className="App-header">
@@ -44,7 +73,7 @@ function App() {
         <Colour updateFill={handleFill}/>
         <Border updateBorder={handleBorder}/>
         <Shadow updateShadow={handleShadow}/>
-        <Shape {...shapeSize} {...fill} {...border} {...shadow}/>
+        <Shape {...shape}{...shapeSize}{...fill}{...bWidth} {...bColor}{...scolor}{...sBlur}{...sAlpha}/>
       </div>
     </div>
   );
