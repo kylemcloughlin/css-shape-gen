@@ -29,7 +29,7 @@ function Colour(props) {
   },[value]);
   
   return (
-    <form className="shape-container" >
+    <form >
        <h2 style={clrStyle}>colour</h2> 
       <input type="checkbox" value="clr" value='clr' onChange={e => setValue(e.target.value)}/>
       <input type='color' style={clrStyle} disabled={disabled} onChange={e => { props.updateFill('colorCode', e.target.value) }}/> 

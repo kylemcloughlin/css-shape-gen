@@ -25,7 +25,7 @@ function Shadow(props) {
     }
   },[value]);
   return (
-    <div className="shape-container">
+    <div>
     <form>
       <h1>Shadow</h1>
       <input type="checkbox" onClick={e => { setValue(e.target.checked)}} value='shadow'/>

@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-
+import seed from './seed.js';
 
 function Shape(props) {
  const [shapeState, setShapeState] = useState(props);
  useEffect(() => {
-    setShapeState(props);
+ console.log(seed);
+  shapeState.props.forEach(e => { 
+    console.log(e)
+  }) 
+  setShapeState(props);
   if (shapeState !== props) {
 
   }
@@ -15,7 +19,12 @@ function Shape(props) {
   return (
     <div className="shape-container">
        <div className="shape"/>
-
+     { shapeState.props.map((x, y)=> {
+     return (
+        <span> x</span>
+      )
+    })
+  }
     </div>
   );
 }
