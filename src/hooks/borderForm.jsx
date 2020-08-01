@@ -3,12 +3,14 @@ import React, { useState, useEffect } from "react";
 
 function Border() {
   const [value, setValue] = useState(null);
+  const [disabled, setDisabled] = useState(true);
   const [style, setStyle] = useState({
-    opacity: '.5'
+    opacity: '.5' 
   });
   useEffect(() => {
     if (value === true) {
       console.log('if', value);
+      setDisabled(false);
       setStyle({
         opacity: '1'
       });
@@ -22,14 +24,14 @@ function Border() {
   return (
     <div className="shape-container-01">
       <form>
-        <label style={style}>Border</label>
+        <label>Border</label>
         <input type="checkbox" onClick={e => { setValue(e.target.checked) }} onSe value='border' />
       </form>
       <form>
        <label> Border Width</label>
-        <input type='number' />
+        <input type='number' style={style} disabled={disabled}/>
         <label> Border Colour</label>
-        <input type='color' />
+        <input type='color' style={style} disabled={disabled}/>
       </form>
     </div>
   );

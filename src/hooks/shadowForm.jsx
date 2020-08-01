@@ -20,6 +20,8 @@ function Shadow() {
       setStyle({
         opacity: '.5'
       });
+      setDisabled(true);
+
     }
   },[value]);
   return (
