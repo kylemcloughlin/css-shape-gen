@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { enabled } from "ansi-colors";
 
 
-function Shadow() {
+function Shadow(props) {
   const [value, setValue] = useState(null);
   const [style, setStyle] = useState({
     opacity: '.5'
@@ -32,12 +32,11 @@ function Shadow() {
     </form>
       <form style={style}>
      <label>Shadow Blur</label>
-        <input type='number' 
-          disabled={disabled}/>
+        <input type='number' onChange={e => { props.updateShadow('shadow-color', e.target.value) }} disabled={disabled}/>
         <label>Shadow Colour</label>
-       <input type='color' disabled ={disabled}/>
+        <input type='color' disabled={disabled} onChange={e => { props.updateShadow('shadow-color', e.target.value) }}/>
         <label>Shadow Alpha</label>
-        <input type='range' disabled={disabled}/> 
+        <input type='range' disabled={disabled} onChange={e => {props.updateShadow('shadow-alpha', e.target.value)}}/> 
 
     </form>
     </div>

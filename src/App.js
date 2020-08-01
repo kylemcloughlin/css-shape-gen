@@ -13,7 +13,17 @@ function App() {
   const handleSize = x => {
     console.log(x);
   }
-  
+  const handleFill = (x, y) => {
+    console.log(x, y)
+  }
+
+  const handleBorder = (x, y) => {
+    console.log(x, y)
+  }
+  const handleShadow = (x, y) => {
+    console.log(x, y)
+  }
+
   return (
       <div className="App">
       <header className="App-header">
@@ -21,11 +31,11 @@ function App() {
       </header>
       <div>
         {/* <Shape/> */}
-  
+
         <Size updateSize={handleSize}/>
-        <Colour />
-        <Border/>
-        <Shadow/>
+        <Colour updateFill={handleFill}/>
+        <Border updateBorder={handleBorder}/>
+        <Shadow updateShadow={handleShadow}/>
       </div>
     </div>
   );

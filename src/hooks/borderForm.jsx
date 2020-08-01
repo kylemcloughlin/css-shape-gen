@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 
-function Border() {
+function Border(props) {
   const [value, setValue] = useState(null);
   const [disabled, setDisabled] = useState(true);
   const [style, setStyle] = useState({
@@ -19,6 +19,8 @@ function Border() {
       setStyle({
         opacity: '.5'
       });
+      setDisabled(true);
+
     }
   }, [value]);
   return (
@@ -29,9 +31,9 @@ function Border() {
       </form>
       <form>
        <label> Border Width</label>
-        <input type='number' style={style} disabled={disabled}/>
+        <input type='number' style={style} disabled={disabled} onChange={e => { props.updateBorder('border-width', e.target.value) }}/>
         <label> Border Colour</label>
-        <input type='color' style={style} disabled={disabled}/>
+        <input type='color' style={style} disabled={disabled} onChange={e => { props.updateBorder('border-color', e.target.value) }}/>
       </form>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect }  from "react";
  
 
 
-function Colour() {
+function Colour(props) {
   const [value, setValue] = useState('clr');
   const [disabled, setDisabled] = useState(true);
   const [clrStyle, setClrStyle] = useState({
@@ -23,6 +23,7 @@ function Colour() {
       setImgStyle({ opacity: '.5' }) 
       console.log('else', value)
 /// need to finish error handling for this -- so bothe cannot be selected at once and it disable the other while one is selected.
+/// THE DISABLE IS NOT CURRENTLY WORKING MST GO BACK AND FIX BUG 
       setDisabled(true);
     }
   },[value]);
@@ -31,11 +32,11 @@ function Colour() {
     <form className="shape-container" >
        <h2 style={clrStyle}>colour</h2> 
       <input type="checkbox" value="clr" value='clr' onChange={e => setValue(e.target.value)}/>
-      <input type='color' style={clrStyle} disabled={disabled}/> 
+      <input type='color' style={clrStyle} disabled={disabled} onChange={e => { props.updateFill('fill-color', e.target.value) }}/> 
          <br/>
       <h2 style={imgStyle}>img</h2>  
       <input type="checkbox" value="img" onChange={e => setValue(e.target.value)} />
-      <input type='text' style={imgStyle} disabled={disabled}/>
+      <input type='text' style={imgStyle} disabled={disabled} onChange={e => { props.updateFill('fill-img', e.target.value) }}/>
       <br/>
     </form>
   );
