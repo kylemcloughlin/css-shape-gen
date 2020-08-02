@@ -1,4 +1,4 @@
-const seed = {
+let seed = {
   shape: 'square',
   html: '<div class="square">',
   css: { 

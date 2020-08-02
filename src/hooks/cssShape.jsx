@@ -4,25 +4,34 @@ import seed from './seed.js';
 
 function Shape(props) {
   const [shapeState, setShapeState] = useState(props);
-  const [css, setCss] =useState(seed.css)
-  const style = seed.css;
+  const [css, setCSS] = useState(seed.css);
+  let style = seed.css;
+  let newStyle = {}
   useEffect(() => {
-    console.log("seed", seed);
-    shapeState.props.forEach(e => {
-     if (e.size) {
-    css.width = e.size;
-      console.log("CSS", css.width)
-    //   Object.defineProperties(style, 'writeable',{
-    //   writeable: true
-    // });
-      //  seed.css.width = '22em';
-        console.log('beep beep', seed.css.width);
+    console.log("CSS", css);
+    shapeState.props.map(e => {
+      if (e.size) {
+        for (var x in style) {   
+          if ( x === 'width') {
+            newStyle[x] = `${e.size}em`;
+            console.log(`${x}: ${e.size}em`);
+          } else if (x === 'height') {
+            newStyle[x] = `${e.size}em`;
+          }
+          else {
+            newStyle[x] = style[x];
+            
+          }
+          
+        }
+        setCSS(newStyle);
+        console.log('$$$$$$$$$$$$$$$$$$$$$',newStyle);
      }
     })
     setShapeState(props);
     if (shapeState !== props) {
 
-    }
+    } 
 
     console.log(shapeState);
   }, [props]);
@@ -30,7 +39,7 @@ function Shape(props) {
   return (
     <div>
       <div className="shape-container">
-        <div className="shape" style={style}/>
+        <div className="shape" style={css}/>
       </div>
       <div className='output-container'>
         <p>{seed.shape}</p>

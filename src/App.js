@@ -8,7 +8,7 @@ import './styles/styles.css';
 
 function App() {
   const [shape,setShape] = useState({shape: 'square'});
-  const [shapeSize, setShapeSize] = useState({size: `${50}px`});
+  const [shapeSize, setShapeSize] = useState({size: `${50}`});
   const [fill, setFill] = useState({ type: 'color', fillCode: '#444'});
   const [bWidth, setBWidth] = useState({ borderWidth: null});
   const [bColor, setBColor] = useState({ borderColor: null});
