@@ -15,11 +15,14 @@ function Shadow(props) {
       setStyle({
         opacity: '1'
       });
+      props.toggleShadow(value, "shadow");
+
     } else {
       console.log('else', value);
       setStyle({
         opacity: '.5'
       });
+      props.toggleShadow(value, "shadow");
       setDisabled(true);
 
     }

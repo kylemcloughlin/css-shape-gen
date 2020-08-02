@@ -8,7 +8,7 @@ function Shape(props) {
   let style = seed.css;
   let newStyle = {}
   useEffect(() => {
-    // console.log("CSS", css);
+    console.log("@@@@@", props.toggle);
     console.log(props === shapeState);
     console.log(props.props) 
     console.log(shapeState.props) 

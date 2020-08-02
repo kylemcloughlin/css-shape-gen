@@ -21,6 +21,11 @@ function App() {
   const [sAlpha, setSAlpha] = useState({
     shadowAlpha: 0
   });
+  const [toggleWhat, setToggleWhat] = useState({
+    shadow: true,
+    border: true,
+    fill:   true
+  })
   const handleSize = x => {
     
     setShapeSize({size: Number(x)});
@@ -63,6 +68,26 @@ function App() {
         });
    }
   }
+  const toggle = (x, y) => {
+    let prevState = toggleWhat;
+    console.log("TOGGLE", x);
+    console.log("WHAT", y);
+     for (var z in prevState) {
+          console.log(z);
+          if (z === y) {
+            prevState[z] = x;
+            console.log('eleleelel', prevState)
+          }
+     }
+  }
+ 
+  const witch = (x) => {
+    let  prevState = toggleWhat;
+    prevState.fill = x;
+    console.log('switch', prevState);
+  }
+
+
   return (
       <div className="App">
       <header className="App-header">
@@ -70,11 +95,12 @@ function App() {
       </header>
       <div>
         <Size updateSize={handleSize}/>
-        <Colour updateFill={handleFill}/>
-        <Border updateBorder={handleBorder}/>
-        <Shadow updateShadow={handleShadow}/>
-        <Shape props={[{...shape},{...shapeSize},{...fill},{...bWidth},{...bColor},{...scolor},{...sBlur},{...sAlpha}]}/>
-      </div>
+        <Colour updateFill={handleFill} switch={witch}/>
+        <Border updateBorder={handleBorder} toggleBorder={toggle}/>
+        <Shadow updateShadow={handleShadow} toggleShadow={toggle}/>
+        <Shape props={[{...shape},{...shapeSize},{...fill},{...bWidth},{...bColor},{...scolor},{...sBlur},{...sAlpha}]} toggle={toggleWhat}/>
+      </div> 
+      {/* fix this props = it looks bad  */}
     </div>
   );
 }

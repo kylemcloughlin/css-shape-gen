@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 
 function Border(props) {
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState(false);
   const [disabled, setDisabled] = useState(true);
   const [style, setStyle] = useState({
     opacity: '.5' 
@@ -11,6 +11,7 @@ function Border(props) {
     if (value === true) {
       console.log('if', value);
       setDisabled(false);
+      props.toggleBorder(value, "border");
       setStyle({
         opacity: '1'
       });
@@ -20,6 +21,8 @@ function Border(props) {
         opacity: '.5'
       });
       setDisabled(true);
+      props.toggleBorder(value, "border");
+
 
     }
   }, [value]);
@@ -27,7 +30,7 @@ function Border(props) {
     <div className="shape-container-01">
       <form>
         <label>Border</label>
-        <input type="checkbox" onClick={e => { setValue(e.target.checked) }} onSe value='border' />
+        <input type="checkbox" onClick={e => { setValue(e.target.checked) }} value='border' />
       </form>
       <form>
        <label> Border Width</label>
