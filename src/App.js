@@ -4,7 +4,7 @@ import Size from './hooks/sizeForm.jsx';
 import Colour from './hooks/colourForm.jsx';
 import Shadow from './hooks/shadowForm.jsx';
 import Border from './hooks/borderForm.jsx';
-import './App.css';
+import './styles/styles.css';
 
 function App() {
   const [shape,setShape] = useState({shape: 'square'});
@@ -73,7 +73,7 @@ function App() {
         <Colour updateFill={handleFill}/>
         <Border updateBorder={handleBorder}/>
         <Shadow updateShadow={handleShadow}/>
-        <Shape {...shape}{...shapeSize}{...fill}{...bWidth} {...bColor}{...scolor}{...sBlur}{...sAlpha}/>
+        <Shape props={[{...shape},{...shapeSize},{...fill},{...bWidth},{...bColor},{...scolor},{...sBlur},{...sAlpha}]}/>
       </div>
     </div>
   );

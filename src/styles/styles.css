@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.shape-container {
+  position: relative;
+  left: 40%;
+  background: blue;
+  height: 23em;
+  width: 23em;
+}
+/*# sourceMappingURL=styles.css.map */

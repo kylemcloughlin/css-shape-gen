@@ -1,30 +1,42 @@
 import React, { useState, useEffect } from "react";
 import seed from './seed.js';
 
-function Shape(props) {
- const [shapeState, setShapeState] = useState(props);
- useEffect(() => {
- console.log(seed);
-  shapeState.props.forEach(e => { 
-    console.log(e)
-  }) 
-  setShapeState(props);
-  if (shapeState !== props) {
 
-  }
-  
+function Shape(props) {
+  const [shapeState, setShapeState] = useState(props);
+  const [css, setCss] =useState(seed.css)
+  const style = seed.css;
+  useEffect(() => {
+    console.log("seed", seed);
+    shapeState.props.forEach(e => {
+     if (e.size) {
+    css.width = e.size;
+      console.log("CSS", css.width)
+    //   Object.defineProperties(style, 'writeable',{
+    //   writeable: true
+    // });
+      //  seed.css.width = '22em';
+        console.log('beep beep', seed.css.width);
+     }
+    })
+    setShapeState(props);
+    if (shapeState !== props) {
+
+    }
+
     console.log(shapeState);
   }, [props]);
 
   return (
-    <div className="shape-container">
-       <div className="shape"/>
-     { shapeState.props.map((x, y)=> {
-     return (
-        <span> x</span>
-      )
-    })
-  }
+    <div>
+      <div className="shape-container">
+        <div className="shape" style={style}/>
+      </div>
+      <div className='output-container'>
+        <p>{seed.shape}</p>
+        <p>{seed.html}</p>
+        <p>{`${seed.css}`}</p>
+      </div>
     </div>
   );
 }
