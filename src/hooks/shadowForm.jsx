@@ -35,11 +35,11 @@ function Shadow(props) {
     </form>
       <form style={style}>
      <label>Shadow Blur</label>
-        <input type='number' onChange={e => { props.updateShadow('shadow-color', e.target.value) }} disabled={disabled}/>
+        <input type='number' onChange={e => { props.updateShadow( 1, e.target.value) }} disabled={disabled}/>
         <label>Shadow Colour</label>
-        <input type='color' disabled={disabled} onChange={e => { props.updateShadow('shadow-color', e.target.value) }}/>
+        <input type='color' disabled={disabled} onChange={e => { props.updateShadow(2, e.target.value) }}/>
         <label>Shadow Alpha</label>
-        <input type='range' disabled={disabled} onChange={e => {props.updateShadow('shadow-alpha', e.target.value)}}/> 
+        <input type='range' disabled={disabled} onChange={e => {props.updateShadow(3, e.target.value)}}/> 
 
     </form>
     </div>

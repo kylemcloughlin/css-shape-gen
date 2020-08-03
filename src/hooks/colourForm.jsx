@@ -3,7 +3,7 @@ import React, { useState, useEffect }  from "react";
 
 
 function Colour(props) {
-  const [value, setValue] = useState(true);
+  const [value, setValue] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [imgDisabled, setImgDisabled] = useState(true);
 

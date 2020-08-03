@@ -14,14 +14,14 @@ function App() {
   const [bColor, setBColor] = useState({ borderColor: null});
   const [sBlur, setSBlur] = useState({
     shadowBlue: null
-  })
+  });
   const [scolor, setSColor] = useState({
     shadowColor: '#444'
-  })
+  });
   const [sAlpha, setSAlpha] = useState({
     shadowAlpha: 0
   });
-  const [toggleWhat, setToggleWhat] = useState([{shadow: false},{border: false},{fill: true}])
+  const [toggleWhat, setToggleWhat] = useState({ featureToggle: null, toggle: false});
   const handleSize = x => {
     
     setShapeSize({size: Number(x)});
@@ -36,19 +36,25 @@ function App() {
   const handleBorder = (x, y) => {
     console.log(x, y);
     if (x === 1) {
+      console.log('1', y);
      return  setBWidth({
         borderWidth: `${y}px`
+        
       });
+
     } 
     if (x === 2 ) {
-     return  setBColor({
+      console.log('2', y);
+      return  setBColor({
         borderColor: y
       });
     }
   }
   const handleShadow = (x, y) => {
-       if (x === 1) {
-         return setSBlur({
+      console.log('!!!!!!', x);   
+    if (x === 1) {
+      console.log('1', y);       
+        return setSBlur({
            shadowBlur: `${y}px`
          });
        }
@@ -65,40 +71,40 @@ function App() {
    }
   }
   const toggle = (x, y) => {
-    let prevState = toggleWhat;
-    // console.log("TOGGLE", x);
-    // console.log("WHAT", y);
-    console.log("prevState", prevState);
-      prevState.map(element =>{
-             console.log("MAP_ELEMENT", element);
+    // let prevState = toggleWhat;
+    console.log("TOGGLE", x);
+    console.log("WHAT", y);
+    // console.log("prevState", prevState);
+    return setToggleWhat({
+      featureToggle: x,
+      toggle: y
+    })
         
-        for (var z in element) {
-            if(z === y ) {
-              console.log(`${z} ====== ${y} ${x} <-- x `)
-              element[z] = x; 
-              console.log("FORINELEMENT[z]", element[z]);
-            } 
-          // console.log("FORINELEMENT0", z);
-          //    console.log("FORINELEMENT2--y", y);
-          //    console.log("FORINELEMENT3--x", x);
-
-
-            //  if (z === y) {
-            //    prevState[z] = x;
-            //    console.log('eleleelel', prevState);
-            //  }
-        }
-
-      })
-    console.log("PREVSTATEREDUXXX", prevState);
-      setToggleWhat(prevState);
-      console.log('TOGGGGGGG', toggleWhat)
+        // for (var z in prevState) {
+        //     if(z === y ) {
+        //       console.log(`${z} ====== ${y} ${x} <-- x `)
+        //       prevState[z] = x; 
+        //       console.log("FORINELEMENT[z]", prevState[z]);
+        //       return setToggleWhat(prevState);
+        //     } 
+          // })
+        // }
+    // console.log("PREVSTATEREDUXXX", prevState);
+   
   }
  
   const witch = (x) => {
-    let  prevState = toggleWhat[2];
+    let  prevState = toggleWhat;
     prevState.fill = x;
-    console.log('switch', prevState);
+    console.log(x);
+    if (x) {
+      return setFill({
+        type: 'color',
+        fillCode: 'url(http://csshexagon.com/img/meow.jpg)'
+      });
+
+    }
+    // return setToggleWhat({ toggle: 'fill', toggleType: x});
   }
 
 
@@ -112,7 +118,7 @@ function App() {
         <Colour updateFill={handleFill} switch={witch}/>
         <Border updateBorder={handleBorder} toggleBorder={toggle}/>
         <Shadow updateShadow={handleShadow} toggleShadow={toggle}/>
-        <Shape props={[{...shape},{...shapeSize},{...fill},{...bWidth},{...bColor},{...scolor},{...sBlur},{...sAlpha}]} toggle={{...toggleWhat}}/>
+        <Shape props={[{...shape},{...toggleWhat},{...shapeSize},{...fill},{...bWidth},{...bColor},{...scolor},{...sBlur},{...sAlpha}]} />
       </div> 
       {/* fix this props = it looks bad  */}
     </div>

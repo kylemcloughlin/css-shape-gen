@@ -6,8 +6,7 @@ let seed = {
     position: 'relative', 
     left: '40%', 
     height: '11em',
-    width: '11em',
-  border: 'hidden' }
+    width: '11em', }
 
 }
 
