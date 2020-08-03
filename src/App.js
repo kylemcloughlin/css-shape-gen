@@ -21,11 +21,7 @@ function App() {
   const [sAlpha, setSAlpha] = useState({
     shadowAlpha: 0
   });
-  const [toggleWhat, setToggleWhat] = useState({
-    shadow: true,
-    border: true,
-    fill:   true
-  })
+  const [toggleWhat, setToggleWhat] = useState([{shadow: false},{border: false},{fill: true}])
   const handleSize = x => {
     
     setShapeSize({size: Number(x)});
@@ -70,19 +66,37 @@ function App() {
   }
   const toggle = (x, y) => {
     let prevState = toggleWhat;
-    console.log("TOGGLE", x);
-    console.log("WHAT", y);
-     for (var z in prevState) {
-          console.log(z);
-          if (z === y) {
-            prevState[z] = x;
-            console.log('eleleelel', prevState)
-          }
-     }
+    // console.log("TOGGLE", x);
+    // console.log("WHAT", y);
+    console.log("prevState", prevState);
+      prevState.map(element =>{
+             console.log("MAP_ELEMENT", element);
+        
+        for (var z in element) {
+            if(z === y ) {
+              console.log(`${z} ====== ${y} ${x} <-- x `)
+              element[z] = x; 
+              console.log("FORINELEMENT[z]", element[z]);
+            } 
+          // console.log("FORINELEMENT0", z);
+          //    console.log("FORINELEMENT2--y", y);
+          //    console.log("FORINELEMENT3--x", x);
+
+
+            //  if (z === y) {
+            //    prevState[z] = x;
+            //    console.log('eleleelel', prevState);
+            //  }
+        }
+
+      })
+    console.log("PREVSTATEREDUXXX", prevState);
+      setToggleWhat(prevState);
+      console.log('TOGGGGGGG', toggleWhat)
   }
  
   const witch = (x) => {
-    let  prevState = toggleWhat;
+    let  prevState = toggleWhat[2];
     prevState.fill = x;
     console.log('switch', prevState);
   }
@@ -98,7 +112,7 @@ function App() {
         <Colour updateFill={handleFill} switch={witch}/>
         <Border updateBorder={handleBorder} toggleBorder={toggle}/>
         <Shadow updateShadow={handleShadow} toggleShadow={toggle}/>
-        <Shape props={[{...shape},{...shapeSize},{...fill},{...bWidth},{...bColor},{...scolor},{...sBlur},{...sAlpha}]} toggle={toggleWhat}/>
+        <Shape props={[{...shape},{...shapeSize},{...fill},{...bWidth},{...bColor},{...scolor},{...sBlur},{...sAlpha}]} toggle={{...toggleWhat}}/>
       </div> 
       {/* fix this props = it looks bad  */}
     </div>

@@ -3,7 +3,7 @@ import { enabled } from "ansi-colors";
 
 
 function Shadow(props) {
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState(false);
   const [style, setStyle] = useState({
     opacity: '.5'
   });

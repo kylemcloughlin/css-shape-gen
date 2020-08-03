@@ -5,13 +5,14 @@ import seed from './seed.js';
 function Shape(props) {
   const [shapeState, setShapeState] = useState(props);
   const [css, setCSS] = useState(seed.css);
+
   let style = seed.css;
   let newStyle = {}
   useEffect(() => {
     console.log("@@@@@", props.toggle);
-    console.log(props === shapeState);
-    console.log(props.props) 
-    console.log(shapeState.props) 
+    // console.log(props === shapeState);
+    // console.log(props.props) 
+    // console.log(shapeState.props) 
     
     props.props.map(e => {
       if (e.size) {
@@ -37,14 +38,20 @@ function Shape(props) {
       }
       setCSS(newStyle);
       // console.log('$$$$$$$$$$$$$$$$$$$$$', newStyle);
-    
+      
     })
-  setShapeState(props);
-  if (shapeState !== props) {
 
-  }
+   
 
-  console.log(shapeState.props);
+    // props.toggle.map(e => { 
+    //   console.log('e', e);
+    //   for (var x in props.toggle) {
+      
+    //     console.log(`tooogle for in ${x}`,props.toggle[x]);
+    //   }
+    // })
+   
+    setShapeState(props);
 }, [props]);
 
 return (
