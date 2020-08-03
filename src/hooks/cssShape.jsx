@@ -29,7 +29,7 @@ function Shape(props) {
         }
       }
       else if (e.type) {
-        console.log('e.type', e.type === 'color')// console.log('beep beep fill code', e.fillCode);
+        // console.log('e.type', e.type === 'color')// console.log('beep beep fill code', e.fillCode);
           newStyle.background = e.fillCode;
       } 
       
@@ -45,20 +45,25 @@ function Shape(props) {
           // newStyle.borderColor = e.borderColor;
         }
       }
-
+      else if (e.shadow === true) {
+        if (e.shadowToggle === false) {
+          newStyle.boxShadow = 'none';   
+        } else {
+          console.log(e.shadowColor.split(""))
+          newStyle.boxShadow = `50px 50px ${e.shadowBlur}px ${e.shadowAlpha}px ${e.shadowColor}`;
+          // newStyle.borderColor = e.borderColor;
+        }
+      }
 
        else {
         // console.log('hit')
       }
 
-      console.log(newStyle)
+
       
     })
     
     setCSS(newStyle);
-   
-
-    
    
     setShapeState(props);
 }, [props]);

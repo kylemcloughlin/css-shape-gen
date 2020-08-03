@@ -10,19 +10,11 @@ function App() {
   const [shape,setShape] = useState({shape: 'square'});
   const [shapeSize, setShapeSize] = useState({size: `${10}`});
   const [fill, setFill] = useState({ type: 'color', fillCode: '#444'});
-  const [border, setBorder] = useState({ border: true, borderToggle: false, borderWidth: '5', borderColor: 'black'});
-  const [sBlur, setSBlur] = useState({
-    shadowBlue: null
-  });
-  const [scolor, setSColor] = useState({
-    shadowColor: '#444'
-  });
-  const [sAlpha, setSAlpha] = useState({
-    shadowAlpha: 0
-  });
-  const [toggleWhat, setToggleWhat] = useState({ featureToggle: null, toggle: false});
+  const [border, setBorder] = useState({ border: true, borderToggle: false, borderWidth: '5', borderColor: '#333'});
+  const [shadow, setShadow] = useState({ shadow: true,  shadowToggle: false, shadowBlur: 1, shadowColor: '#333', shadowAlpha: 2})
+    const [toggleWhat, setToggleWhat] = useState({ featureToggle: null, toggle: false});
+
   const handleSize = x => {
-    
     setShapeSize({size: Number(x)});
   }
   const handleFill = (x, y) => {
@@ -58,41 +50,55 @@ function App() {
     }
   }
   const handleShadow = (x, y) => {
-      console.log('!!!!!!', x);   
+      let prevState = shadow;
     if (x === 1) {
       console.log('1', y);       
-        return setSBlur({
-           shadowBlur: `${y}px`
+        return setShadow({
+          shadow: prevState.shadow,
+          shadowToggle: prevState.shadowToggle,
+          shadowBlur: y,
+          shadowColor: prevState.shadowColor,
+          shadowAlpha: prevState.shadowAlpha
          });
        }
        if (x === 2) {
-         return setSColor({
-           shadowColor: y
+         return setShadow({
+           shadow: prevState.shadow,
+           shadowToggle: prevState.shadowToggle,
+           shadowBlur: prevState.shadowBlur,
+           shadowColor: y,
+           shadowAlpha: prevState.shadowAlpha
          });
 
        }
       if (x === 3) {
-        return setSAlpha({
-          shadowAlpha: y
-        });
+         return setShadow({
+           shadow: prevState.shadow,
+           shadowToggle: prevState.shadowToggle,
+           shadowBlur: prevState.shadowBlur,
+           shadowColor: prevState.shadowColor,
+           shadowAlpha: y
+         });
    }
   }
   const toggleS = (x, y) => {
-    // let prevState = toggleWhat;
+    let prevState = shadow;
     console.log("TOGGLE", x);
     console.log("WHAT", y);
     // console.log("prevState", prevState);
-    return setToggleWhat({
-      featureToggle: x,
-      toggle: y
+    return setShadow({
+      shadow: prevState.shadow,
+      shadowToggle: x,
+      shadowBlur: prevState.shadowBlur,
+      shadowColor: prevState.shadowColor,
+      shadowAlpha: prevState.shadowAlpha
     })
    
   }
  const toggleB = (x, y) => {
      let prevState = border;
      console.log("TOGGLE", x);
-    //  console.log("WHAT", y);
-     // console.log("prevState", prevState);
+    ;
      return setBorder({
        border: true,
        toggleBorder: x,
@@ -125,7 +131,7 @@ function App() {
         <Colour updateFill={handleFill} switch={witch}/>
         <Border updateBorder={handleBorder} toggleBorder={toggleB}/>
         <Shadow updateShadow={handleShadow} toggleShadow={toggleS}/>
-        <Shape props={[{...shape},{...toggleWhat},{...shapeSize},{...fill},{...border},{...scolor},{...sBlur},{...sAlpha}]} />
+        <Shape props={[{...shape},{...toggleWhat},{...shapeSize},{...fill},{...border},{...shadow}]} />
       </div> 
       {/* fix this props = it looks bad  */}
     </div>

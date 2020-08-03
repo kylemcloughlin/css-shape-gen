@@ -31,7 +31,7 @@ function Shadow(props) {
     <div>
     <form>
       <h1>Shadow</h1>
-      <input type="checkbox" onClick={e => { setValue(e.target.checked)}} value='shadow'/>
+      <input type="checkbox" onClick={e => { setValue(e.target.checked)}}/>
     </form>
       <form style={style}>
      <label>Shadow Blur</label>
