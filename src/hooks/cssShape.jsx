@@ -31,58 +31,34 @@ function Shape(props) {
       else if (e.type) {
         console.log('e.type', e.type === 'color')// console.log('beep beep fill code', e.fillCode);
           newStyle.background = e.fillCode;
-      } else if (e.borderWidth ) {
-            console.log('border-width', e.borderWidth)
-      } else if (e.borderWidth) {
-        console.log('border-colour', e.borderColour)
-     
-     
-      } else if (e.toggle === 'border') {
-      if (e.featureToggle) {
-        newStyle.border = '6px solid black';
-
-      } else {
-        newStyle.border = 'hidden';
-
+      } 
+      
+      else if (e.border === true) {
+        console.log('hit e.border')
+    
+        if (e.toggleBorder === false ){
+          newStyle.border = 'hidden';
+        } else  {
+          
+          console.log(e.borderColor)
+          newStyle.border = `${e.borderWidth}px solid` + e.borderColor;
+          // newStyle.borderColor = e.borderColor;
+        }
       }
-        console.log('hit e.toggle', e.toggle);
-        // if (e.toggleType === true ) {
-        //     newStyle.border = '6px solild black';
-        //     for (let x in newStyle) {
-        //       console.log(newStyle)
 
-        //     if (x.background ) {
-        //         // x.background = 'gold';
-        //       console.log('11111!!!!!!!!!')
 
-        //       }
-        //   } 
-          // } else {
-          //   // newStyle.background = 'gold';
-          //   console.log('toggleType----else', e.toggleType);
-          // }
-        // console.log('toggle', e.toggle)
-        // console.log();
-
-      } else {
+       else {
         // console.log('hit')
       }
 
       console.log(newStyle)
-      // console.log('$$$$$$$$$$$$$$$$$$$$$', newStyle);
       
     })
     
     setCSS(newStyle);
    
 
-    // props.toggle.map(e => { 
-    //   console.log('e', e);
-    //   for (var x in props.toggle) {
-      
-    //     console.log(`tooogle for in ${x}`,props.toggle[x]);
-    //   }
-    // })
+    
    
     setShapeState(props);
 }, [props]);

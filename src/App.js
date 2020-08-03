@@ -10,8 +10,7 @@ function App() {
   const [shape,setShape] = useState({shape: 'square'});
   const [shapeSize, setShapeSize] = useState({size: `${10}`});
   const [fill, setFill] = useState({ type: 'color', fillCode: '#444'});
-  const [bWidth, setBWidth] = useState({ borderWidth: null});
-  const [bColor, setBColor] = useState({ borderColor: null});
+  const [border, setBorder] = useState({ border: true, borderToggle: false, borderWidth: '5', borderColor: 'black'});
   const [sBlur, setSBlur] = useState({
     shadowBlue: null
   });
@@ -34,19 +33,27 @@ function App() {
   };
 
   const handleBorder = (x, y) => {
+      let prevState = border;
+      console.log('prevSTATE.borderWidth', prevState.borderColor)
     console.log(x, y);
     if (x === 1) {
       console.log('1', y);
-     return  setBWidth({
-        borderWidth: `${y}px`
+     return  setBorder({
+       border: prevState.border,
+       toggleBorder: prevState.toggleBorder,
+        borderWidth: y,
+        borderColor: prevState.borderColor
         
       });
 
     } 
     if (x === 2 ) {
-      console.log('2', y);
-      return  setBColor({
-        borderColor: y
+      console.log(`${y} !!!!!`, y.toString() === String());
+      return  setBorder({
+        border: prevState.border,
+        toggleBorder: prevState.toggleBorder,
+        borderWidth: prevState.borderWidth,
+        borderColor: `${y}`
       });
     }
   }
@@ -70,7 +77,7 @@ function App() {
         });
    }
   }
-  const toggle = (x, y) => {
+  const toggleS = (x, y) => {
     // let prevState = toggleWhat;
     console.log("TOGGLE", x);
     console.log("WHAT", y);
@@ -79,20 +86,20 @@ function App() {
       featureToggle: x,
       toggle: y
     })
-        
-        // for (var z in prevState) {
-        //     if(z === y ) {
-        //       console.log(`${z} ====== ${y} ${x} <-- x `)
-        //       prevState[z] = x; 
-        //       console.log("FORINELEMENT[z]", prevState[z]);
-        //       return setToggleWhat(prevState);
-        //     } 
-          // })
-        // }
-    // console.log("PREVSTATEREDUXXX", prevState);
    
   }
- 
+ const toggleB = (x, y) => {
+     let prevState = border;
+     console.log("TOGGLE", x);
+    //  console.log("WHAT", y);
+     // console.log("prevState", prevState);
+     return setBorder({
+       border: true,
+       toggleBorder: x,
+       borderWidth: prevState.borderWidth,
+       borderColor: prevState.borderColor
+     })
+    }
   const witch = (x) => {
     let  prevState = toggleWhat;
     prevState.fill = x;
@@ -116,9 +123,9 @@ function App() {
       <div>
         <Size updateSize={handleSize}/>
         <Colour updateFill={handleFill} switch={witch}/>
-        <Border updateBorder={handleBorder} toggleBorder={toggle}/>
-        <Shadow updateShadow={handleShadow} toggleShadow={toggle}/>
-        <Shape props={[{...shape},{...toggleWhat},{...shapeSize},{...fill},{...bWidth},{...bColor},{...scolor},{...sBlur},{...sAlpha}]} />
+        <Border updateBorder={handleBorder} toggleBorder={toggleB}/>
+        <Shadow updateShadow={handleShadow} toggleShadow={toggleS}/>
+        <Shape props={[{...shape},{...toggleWhat},{...shapeSize},{...fill},{...border},{...scolor},{...sBlur},{...sAlpha}]} />
       </div> 
       {/* fix this props = it looks bad  */}
     </div>

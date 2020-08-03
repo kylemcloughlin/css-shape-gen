@@ -11,7 +11,7 @@ function Border(props) {
     if (value === true) {
       console.log('if', value);
       setDisabled(false);
-      props.toggleBorder(value, "border");
+      props.toggleBorder(value);
       setStyle({
         opacity: '1'
       });
@@ -21,7 +21,7 @@ function Border(props) {
         opacity: '.5'
       });
       setDisabled(true);
-      props.toggleBorder(value, "border");
+      props.toggleBorder(value);
 
 
     }
