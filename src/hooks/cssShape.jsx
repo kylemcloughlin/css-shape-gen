@@ -69,12 +69,17 @@ function Shape(props) {
 }, [props]);
 
 return (
-  <div>
+  <div class='body'>
     <div className="shape-container">
       <div className="shape" style={css} />
     </div>
     <div className='output-container'>
+
+    <h4></h4>
       <p>{seed.shape}</p>
+
+      <h4></h4>
+      
       <p>{seed.html}</p>
       <p>{`${seed.css}`}</p>
     </div>

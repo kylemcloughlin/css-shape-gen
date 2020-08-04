@@ -10,17 +10,20 @@ export default function Size(props) {
   // }
   
   return (
-    <form className="size-form-container">
+    <div className="grid-item-1">
+      <h1>CSS Shape Generator</h1>
+    <form>
       <label>Shape Size</label>
       <input 
       type='number' 
       className="size-input"  
       // value={size}
       placeholder={`${size}`}
-        onChange={e => props.updateSize(e.target.value)}
+      onChange={e => props.updateSize(e.target.value)}
       />
     
-    </form>
+     </form>
+    </div>
   );
 }
 

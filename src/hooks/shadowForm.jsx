@@ -28,7 +28,7 @@ function Shadow(props) {
     }
   },[value]);
   return (
-    <div>
+    <div class='grid-item-4'>
     <form>
       <h1>Shadow</h1>
       <input type="checkbox" onClick={e => { setValue(e.target.checked)}}/>

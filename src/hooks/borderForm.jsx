@@ -27,7 +27,7 @@ function Border(props) {
     }
   }, [value]);
   return (
-    <div className="shape-container-01">
+    <div className="grid-item-3">
       <form>
         <label>Border</label>
         <input type="checkbox" onClick={e => { setValue(e.target.checked) }} value='border' />

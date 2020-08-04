@@ -123,16 +123,16 @@ function App() {
 
   return (
       <div className="App">
-      <header className="App-header">
-      <h1>CSS Shape Generator</h1>
-      </header>
-      <div>
+      {/* <header className="App-header"> */}
+      {/* </header> */}
+      <header className='grid-container'>
+      
         <Size updateSize={handleSize}/>
         <Colour updateFill={handleFill} switch={witch}/>
         <Border updateBorder={handleBorder} toggleBorder={toggleB}/>
         <Shadow updateShadow={handleShadow} toggleShadow={toggleS}/>
+      </header> 
         <Shape props={[{...shape},{...toggleWhat},{...shapeSize},{...fill},{...border},{...shadow}]} />
-      </div> 
       {/* fix this props = it looks bad  */}
     </div>
   );
