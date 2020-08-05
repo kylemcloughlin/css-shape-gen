@@ -1,3 +1,51 @@
+@mixin left {
+  position: absolute;
+  bottom: 0.3em;
+  left: 0.5em;
+}
+
+@mixin adjustableLeft($top) {
+  position: absolute;
+  top: $top;
+  left: 0.5em;
+}
+
+@mixin adjustableRight($top) {
+  position: absolute;
+  top: $top;
+  right: 0.5em;
+}
+
+@mixin right {
+  position: absolute;
+  bottom: 0.3em;
+  right: 0.5em;
+}
+
+@mixin middleLeft {
+  position: absolute;
+  bottom: 4.2em;
+  left: 0.5em;
+}
+
+@mixin middleRight {
+  position: absolute;
+  bottom: 5em;
+  right: 0.5em;
+}
+
+@mixin topLeft {
+  position: absolute;
+  top: 0;
+  left: 0.5em;
+}
+
+@mixin topRight {
+  position: absolute;
+  top: 0.3em;
+  right: 0.5em;
+}
+
 @mixin flexCenter {
   display: flex;
   justify-content: center;
@@ -5,14 +53,33 @@
 
 }
 
+$firstColor : #fafafa;
+$secondColor: aqua;
+$thirdColor: white;
+$firstFont : 'Open Sans',
+sans-serif;
+$secondFont : monospace;
+
+html {
+  /* text-align: center; */
+  background-color: #999;
+}
+
 .App {
   width: 100%;
-  height: 100%;
+  height: auto;
+  font-family: $firstFont;
+  // background: #999;
+
 }
+
+.body {}
 
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: minmax(150px, auto);
+  // grid-auto-columns: minmax(33em, 44em);
   grid-gap: 1em;
 
   //this if for responsive d. add next
@@ -22,61 +89,175 @@
 }
 
 .grid-item-1 {
+  position: relative;
+  background-color: $firstColor;
 
-  background-color: pink;
+
+
+  // background-color: pink;
+
+}
+
+
+.project-title {
+  // color: aqua;
+  width: 100%;
+  font-family: $firstFont;
+  font-weight: 300;
+}
+.box-title {
+  @include topLeft();
+}
+// .input-container {
+//   height: 100%;;
+// }
+.size-input {
+  @include left();
+
 
 }
 
 .grid-item-2 {
+  background-color: $firstColor;
+  position: relative // background-color: blue;
 
-  background-color: blue;
 
+}
+
+.checkbox {
+  @include topRight()
+}
+#clr-label {
+        @include adjustableLeft(2.5em);
+}
+#clr-input {
+     @include adjustableRight(3em);
+
+}
+#img-label {
+   @include adjustableLeft(5em);
+}
+
+#img-checkbox {
+      @include adjustableRight(6.5em);
+}
+#url-label {
+  @include left()
+}
+
+#img-input {
+  @include right();
 }
 
 .grid-item-3 {
+  background-color: $firstColor;
+  position: relative;
 
-  background-color: yellow;
+  // background-color: yellow;
 
 }
 
-.grid-item-4 {
+#border-width {
+  @include middleRight();
+}
 
-  background-color: yellow;
+#border-width-label {
+  @include middleLeft();
+
+}
+
+#border-color {
+  @include right();
+}
+
+#border-color-label {
+  @include left();
+
+}
+
+
+
+.grid-item-4 {
+  background-color: $firstColor;
+  position: relative;
+  // background-color: yellow;
+}
+
+#blur-label {
+     @include adjustableLeft(3em);
+
+}
+
+#blur {
+  @include adjustableRight(4em);
+
+}
+
+#shadow-clr {
+   @include adjustableRight(6.5em);
+}
+
+#shadow-clr-label{
+     @include adjustableLeft(5.5em); 
+}
+#alpha {
+  @include right();
+
+}
+
+#alpha-label {
+  @include left();
+
 }
 
 .body {
   width: 100%;
   display: grid;
-  grid-template-columns: 3fr 1fr ;
+  grid-template-columns: 2.5fr 1.5fr;
   grid-column-gap: .5em;
 }
-
 .shape-container {
-  // width: 10em;
-  // position: none;
-  margin-top: .5em; 
-  background: aqua;
+  background:#888; 
+  width: 65%;
+  height: 75%;
+  position: absolute;
+  top: 3.5em;
+  left: 1.5em;
+  border-radius: 2em;
   @include flexCenter();
+  // height: auto;
+}
+
+.shape-grid-container {
+  // width: 10em;
+  position: relative;
+  // position: none;
+  margin-top: .5em;
+  background-color: $firstColor;
   height: 30em;
+
   // width: 50%;
   ;
 }
 
 .output-container {
   margin-top: .5em;
-  // bottom: 20em;
-  background-color: aqua;
+  background-color: $firstColor;
 
 
+}
+
+.csshtml {
+  font-family: $secondFont;
 }
 
 @media only screen and (max-width: 675px) {
-.body {
-grid-template-columns: 1fr;
-}
+  .body {
+    grid-template-columns: 1fr;
+  }
+
   .grid-container {
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 1fr auto;
     grid-template-areas:
       'a b'
       'a b'
@@ -84,25 +265,26 @@ grid-template-columns: 1fr;
   }
 
   .grid-item-1 {
+
     grid-area: 'a';
-    background-color: black;
+
   }
 
   .grid-item-2 {
     grid-area: 'a';
-    background-color: black;
+
 
   }
 
   .grid-item-3 {
     grid-area: 'b';
-    background-color: black;
+
 
   }
 
   .grid-item-4 {
     grid-area: 'b';
-    background-color: black;
+
 
   }
 

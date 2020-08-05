@@ -70,18 +70,18 @@ function Shape(props) {
 
 return (
   <div class='body'>
-    <div className="shape-container">
+    <div class="shape-grid-container">
+      <div class="shape-container">
       <div className="shape" style={css} />
     </div>
+    </div>
     <div className='output-container'>
-
     <h4></h4>
       <p>{seed.shape}</p>
 
       <h4></h4>
-      
-      <p>{seed.html}</p>
-      <p>{`${seed.css}`}</p>
+      <p className='csshtml'>{seed.html}</p>
+      <p className='csshtml'>{`${seed.css}`}</p>
     </div>
   </div>
 );

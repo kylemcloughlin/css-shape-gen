@@ -36,13 +36,15 @@ function Colour(props) {
   
   return (
     <form className='grid-item-2'>
-       <h2 style={clrStyle}>colour</h2> 
-      {/* <input type="checkbox" value="clr" value='clr' onChange={e => setValue(e.target.value)}/> */}
-      <input type='color' style={clrStyle} disabled={disabled} onChange={e => { props.updateFill('colorCode', e.target.value) }}/> 
-         <br/>
-      <h2 style={imgStyle}>img</h2>  
-      <input type="checkbox" value="img" onChange={e => setValue(e.target.checked)} />
-      <input type='text' style={imgStyle} disabled={imgDisabled} onChange={e => { props.updateFill('imgURL', e.target.value) }}/>
+      <h3 class='box-title'>Fill</h3> 
+
+      <input class='checkbox' type="checkbox" value="clr" value='clr' onChange={e => setValue(e.target.value)}/>
+       <label id='clr-label'style={clrStyle}>colour</label> 
+      <input id='clr-input'type='color' style={clrStyle} disabled={disabled} onChange={e => { props.updateFill('colorCode', e.target.value) }}/> 
+      <label id='img-label' style={imgStyle}>img</label> 
+      <input type="checkbox" id='img-checkbox' value="img" onChange={e => setValue(e.target.checked)} />
+      <label id='url-label' style={imgStyle}>URL</label>  
+      <input class='input' id='img-input'  type='text' style={imgStyle} disabled={imgDisabled} onChange={e => { props.updateFill('imgURL', e.target.value) }}/>
       <br/>
     </form>
   );

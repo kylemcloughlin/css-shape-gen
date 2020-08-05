@@ -30,16 +30,16 @@ function Shadow(props) {
   return (
     <div class='grid-item-4'>
     <form>
-      <h1>Shadow</h1>
-      <input type="checkbox" onClick={e => { setValue(e.target.checked)}}/>
+      <h3 class='box-title'>Shadow</h3>
+      <input class='checkbox' type="checkbox" onClick={e => { setValue(e.target.checked)}}/>
     </form>
       <form style={style}>
-     <label>Shadow Blur</label>
-        <input type='number' onChange={e => { props.updateShadow( 1, e.target.value) }} disabled={disabled}/>
-        <label>Shadow Colour</label>
-        <input type='color' disabled={disabled} onChange={e => { props.updateShadow(2, e.target.value) }}/>
-        <label>Shadow Alpha</label>
-        <input type='range' disabled={disabled} onChange={e => {props.updateShadow(3, e.target.value)}}/> 
+     <label id='blur-label'>Blur</label>
+        <input type='number' id='blur' onChange={e => { props.updateShadow( 1, e.target.value) }} disabled={disabled}/>
+        <label id='shadow-clr-label'>Colour</label>
+        <input id='shadow-clr' type='color' disabled={disabled} onChange={e => { props.updateShadow(2, e.target.value) }}/>
+        <label id='alpha-label'>Alpha</label>
+        <input id='alpha'type='range' disabled={disabled} onChange={e => {props.updateShadow(3, e.target.value)}}/> 
 
     </form>
     </div>

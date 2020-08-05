@@ -1,6 +1,12 @@
+html {
+  /* text-align: center; */
+  background-color: #999;
+}
+
 .App {
   width: 100%;
-  height: 100%;
+  height: auto;
+  font-family: "Open Sans", sans-serif;
 }
 
 .grid-container {
@@ -8,37 +14,167 @@
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: minmax(150px, auto);
   grid-gap: 1em;
 }
 
 .grid-item-1 {
-  background-color: pink;
+  position: relative;
+  background-color: #fafafa;
+}
+
+.project-title {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+}
+
+.box-title {
+  position: absolute;
+  top: 0;
+  left: 0.5em;
+}
+
+.size-input {
+  position: absolute;
+  bottom: 0.3em;
+  left: 0.5em;
 }
 
 .grid-item-2 {
-  background-color: blue;
+  background-color: #fafafa;
+  position: relative;
+}
+
+.checkbox {
+  position: absolute;
+  top: 0.3em;
+  right: 0.5em;
+}
+
+#clr-label {
+  position: absolute;
+  top: 2.5em;
+  left: 0.5em;
+}
+
+#clr-input {
+  position: absolute;
+  top: 3em;
+  right: 0.5em;
+}
+
+#img-label {
+  position: absolute;
+  top: 5em;
+  left: 0.5em;
+}
+
+#img-checkbox {
+  position: absolute;
+  top: 6.5em;
+  right: 0.5em;
+}
+
+#url-label {
+  position: absolute;
+  bottom: 0.3em;
+  left: 0.5em;
+}
+
+#img-input {
+  position: absolute;
+  bottom: 0.3em;
+  right: 0.5em;
 }
 
 .grid-item-3 {
-  background-color: yellow;
+  background-color: #fafafa;
+  position: relative;
+}
+
+#border-width {
+  position: absolute;
+  bottom: 5em;
+  right: 0.5em;
+}
+
+#border-width-label {
+  position: absolute;
+  bottom: 4.2em;
+  left: 0.5em;
+}
+
+#border-color {
+  position: absolute;
+  bottom: 0.3em;
+  right: 0.5em;
+}
+
+#border-color-label {
+  position: absolute;
+  bottom: 0.3em;
+  left: 0.5em;
 }
 
 .grid-item-4 {
-  background-color: yellow;
+  background-color: #fafafa;
+  position: relative;
+}
+
+#blur-label {
+  position: absolute;
+  top: 3em;
+  left: 0.5em;
+}
+
+#blur {
+  position: absolute;
+  top: 4em;
+  right: 0.5em;
+}
+
+#shadow-clr {
+  position: absolute;
+  top: 6.5em;
+  right: 0.5em;
+}
+
+#shadow-clr-label {
+  position: absolute;
+  top: 5.5em;
+  left: 0.5em;
+}
+
+#alpha {
+  position: absolute;
+  bottom: 0.3em;
+  right: 0.5em;
+}
+
+#alpha-label {
+  position: absolute;
+  bottom: 0.3em;
+  left: 0.5em;
 }
 
 .body {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 1fr;
-      grid-template-columns: 3fr 1fr;
+  -ms-grid-columns: 2.5fr 1.5fr;
+      grid-template-columns: 2.5fr 1.5fr;
   grid-column-gap: .5em;
 }
 
 .shape-container {
-  margin-top: .5em;
-  background: aqua;
+  background: #888;
+  width: 65%;
+  height: 75%;
+  position: absolute;
+  top: 3.5em;
+  left: 1.5em;
+  border-radius: 2em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -48,12 +184,22 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.shape-grid-container {
+  position: relative;
+  margin-top: .5em;
+  background-color: #fafafa;
   height: 30em;
 }
 
 .output-container {
   margin-top: .5em;
-  background-color: aqua;
+  background-color: #fafafa;
+}
+
+.csshtml {
+  font-family: monospace;
 }
 
 @media only screen and (max-width: 675px) {
@@ -64,24 +210,19 @@
   .grid-container {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 1fr auto;
         grid-template-areas: 'a b' 'a b';
   }
   .grid-item-1 {
     grid-area: 'a';
-    background-color: black;
   }
   .grid-item-2 {
     grid-area: 'a';
-    background-color: black;
   }
   .grid-item-3 {
     grid-area: 'b';
-    background-color: black;
   }
   .grid-item-4 {
     grid-area: 'b';
-    background-color: black;
   }
 }
 /*# sourceMappingURL=styles.css.map */

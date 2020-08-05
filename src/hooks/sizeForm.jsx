@@ -11,16 +11,16 @@ export default function Size(props) {
   
   return (
     <div className="grid-item-1">
-      <h1>CSS Shape Generator</h1>
-    <form>
-      <label>Shape Size</label>
+      <h1 class='project-title'>CSS Shape Generator</h1>
+    <form className='size-input'>
       <input 
       type='number' 
-      className="size-input"  
+      
       // value={size}
       placeholder={`${size}`}
       onChange={e => props.updateSize(e.target.value)}
       />
+      <label>Shape Size</label>
     
      </form>
     </div>

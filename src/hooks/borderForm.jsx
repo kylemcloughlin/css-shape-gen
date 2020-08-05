@@ -29,14 +29,14 @@ function Border(props) {
   return (
     <div className="grid-item-3">
       <form>
-        <label>Border</label>
-        <input type="checkbox" onClick={e => { setValue(e.target.checked) }} value='border' />
+        <h3 class='box-title'>Border</h3>
+        <input class='checkbox' type="checkbox" onClick={e => { setValue(e.target.checked) }} value='border' />
       </form>
       <form>
-       <label> Border Width</label>
-        <input type='number' style={style} disabled={disabled} onChange={e => { props.updateBorder(1, e.target.value) }}/>
-        <label> Border Colour</label>
-        <input type='color' style={style} disabled={disabled} onChange={e => { props.updateBorder(2, e.target.value) }}/>
+       <label id='border-width-label'> Border Width</label>
+        <input class='number-picker' type='number' id='border-width' style={style} disabled={disabled} onChange={e => { props.updateBorder(1, e.target.value) }}/>
+        <label id='border-color-label'> Border Colour</label>
+        <input class='color-picker' id='border-color' type='color' style={style} disabled={disabled} onChange={e => { props.updateBorder(2, e.target.value) }}/>
       </form>
     </div>
   );
