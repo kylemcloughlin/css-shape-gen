@@ -11,7 +11,7 @@ function App() {
   const [shapeSize, setShapeSize] = useState({size: `${10}`});
   const [fill, setFill] = useState({ type: 'color', fillCode: '#444'});
   const [border, setBorder] = useState({ border: true, borderToggle: false, borderWidth: '5', borderColor: 'none'});
-  const [shadow, setShadow] = useState({ shadow: true,  shadowToggle: false, shadowBlur: 1, shadowColor: '#333', shadowAlpha: 2})
+  const [shadow, setShadow] = useState({ shadow: true,  shadowToggle: false, shadowBlur: 1, shadowColor: 'none', shadowAlpha: 2})
     const [toggleWhat, setToggleWhat] = useState({ featureToggle: null, toggle: false});
 
   const handleSize = x => {
@@ -26,76 +26,61 @@ function App() {
 
   const handleBorder = (x, y) => {
       let prevState = border;
-        // console.log(null)
       return setBorder({
         border: prevState.border,
         toggleBorder: prevState.toggleBorder,
         borderWidth: x,
         borderColor: y 
     });
-  }
-      // console.log('prevSTATE.borderWidth', prevState.borderColor)
-    // console.log(x, y);
-    // if (x === 1) {
-    //   console.log('1', y);
-    //  return  setBorder({
-    //    border: prevState.border,
-    //    toggleBorder: prevState.toggleBorder,
-    //     borderWidth: y,
-    //     borderColor: prevState.borderColor
-        
-    //   });
-
-    // } 
-    // if (x === 2 ) {
-    //   console.log(`${y} ${x}!!!!!`, y);
-    //   return  setBorder({
-    //     border: prevState.border,
-    //     toggleBorder: prevState.toggleBorder,
-    //     borderWidth: prevState.borderWidth,
-    //     borderColor: y
-    //   });
+  };
     
   
-  const handleShadow = (x, y) => {
+  const handleShadow = (x, y, z) => {
       let prevState = shadow;
-    if (x === 1) {
-      // console.log('1', y);       
-        return setShadow({
-          shadow: prevState.shadow,
-          shadowToggle: prevState.shadowToggle,
-          shadowBlur: y,
-          shadowColor: prevState.shadowColor,
-          shadowAlpha: prevState.shadowAlpha
-         });
-       }
-       if (x === 2) {
-         return setShadow({
-           shadow: prevState.shadow,
-           shadowToggle: prevState.shadowToggle,
-           shadowBlur: prevState.shadowBlur,
-           shadowColor: y,
-           shadowAlpha: prevState.shadowAlpha
-         });
-
-       }
-      if (x === 3) {
-         return setShadow({
-           shadow: prevState.shadow,
-           shadowToggle: prevState.shadowToggle,
-           shadowBlur: prevState.shadowBlur,
-           shadowColor: prevState.shadowColor,
-           shadowAlpha: y
-         });
-   }
-  }
-  const toggleS = (x, y) => {
-    let prevState = shadow;
-    // console.log("TOGGLE", x);
-    // console.log("WHAT", y);
-    // console.log("prevState", prevState);
     return setShadow({
       shadow: prevState.shadow,
+      shadowToggle: prevState.toggleBorder,
+      shadowBlur: x,
+      shadowColor: y,
+      shadowAlpha: z
+    })
+    
+    
+      // if (x === 1) {
+    //   // console.log('1', y);       
+    //     return setShadow({
+    //       shadow: prevState.shadow,
+    //       shadowToggle: prevState.shadowToggle,
+    //       shadowBlur: y,
+    //       shadowColor: prevState.shadowColor,
+    //       shadowAlpha: prevState.shadowAlpha
+    //      });
+    //    }
+    //    if (x === 2) {
+    //      return setShadow({
+    //        shadow: prevState.shadow,
+    //        shadowToggle: prevState.shadowToggle,
+    //        shadowBlur: prevState.shadowBlur,
+    //        shadowColor: y,
+    //        shadowAlpha: prevState.shadowAlpha
+    //      });
+
+    //    }
+    //   if (x === 3) {
+    //      return setShadow({
+    //        shadow: prevState.shadow,
+    //        shadowToggle: prevState.shadowToggle,
+    //        shadowBlur: prevState.shadowBlur,
+    //        shadowColor: prevState.shadowColor,
+    //        shadowAlpha: y
+    //      });
+  //  }
+  }
+  const toggleS = (x) => {
+    let prevState = shadow;
+    console.log('TOGGGLE SHADOW', x);
+    return setShadow({
+      shadow: true,
       shadowToggle: x,
       shadowBlur: prevState.shadowBlur,
       shadowColor: prevState.shadowColor,

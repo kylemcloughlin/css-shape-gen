@@ -326,6 +326,9 @@ html {
   ;
 }
 
+.shape {
+  position: absolute;
+}
 .output-container {
   margin-top: .5em;
   // background-color: $firstColor;
@@ -385,5 +388,20 @@ html {
 
 
   }
+  
+  // .shape-container {
+  //   top: 0;
+  // }
+}
 
+@media only screen and (max-width: 450px) {
+   .grid-container {
+     grid-template-columns: 1fr;
+     grid-template-areas:
+       'a'
+       'b'
+       'c'
+       'd'
+
+   }
 }

@@ -10,7 +10,7 @@ function Shape(props) {
   let style = seed.css;
   useEffect(() => {
     let newStyle = {};
-    console.log("@@@@@", props.props[4]);
+    console.log("@@@@@", props.props[5]);
     props.props.map(e => {
         // console.log('mapmapmap', e)
       if (e.size) {
@@ -46,7 +46,7 @@ function Shape(props) {
         }
       }
       else if (e.shadow === true) {
-        if (e.shadowToggle === false) {
+        if (e.shadowToggle === true) {
           newStyle.boxShadow = 'none';   
         } else {
           // console.log(e.shadowColor.split(""))

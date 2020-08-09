@@ -277,6 +277,10 @@ html {
   height: 30em;
 }
 
+.shape {
+  position: absolute;
+}
+
 .output-container {
   margin-top: .5em;
 }
@@ -324,6 +328,14 @@ html {
   }
   .grid-item-4 {
     grid-area: 'b';
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .grid-container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 'a' 'b' 'c' 'd';
   }
 }
 /*# sourceMappingURL=styles.css.map */
