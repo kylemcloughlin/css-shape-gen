@@ -10,9 +10,9 @@ function Shape(props) {
   let style = seed.css;
   useEffect(() => {
     let newStyle = {};
-    // console.log("@@@@@", props.props);
+    console.log("@@@@@", props.props[4]);
     props.props.map(e => {
-        console.log('mapmapmap', e)
+        // console.log('mapmapmap', e)
       if (e.size) {
         for (var x in style) {
           if (x === 'width') {
@@ -34,13 +34,13 @@ function Shape(props) {
       } 
       
       else if (e.border === true) {
-        console.log('hit e.border')
+        // console.log('hit e.border')
     
-        if (e.toggleBorder === false ){
+        if (e.toggleBorder === true ){
           newStyle.border = 'hidden';
         } else  {
           
-          console.log(e.borderColor)
+          // console.log(e.borderColor)
           newStyle.border = `${e.borderWidth}px solid` + e.borderColor;
           // newStyle.borderColor = e.borderColor;
         }
@@ -49,7 +49,7 @@ function Shape(props) {
         if (e.shadowToggle === false) {
           newStyle.boxShadow = 'none';   
         } else {
-          console.log(e.shadowColor.split(""))
+          // console.log(e.shadowColor.split(""))
           newStyle.boxShadow = `50px 50px ${e.shadowBlur}px ${e.shadowAlpha}px ${e.shadowColor}`;
           // newStyle.borderColor = e.borderColor;
         }

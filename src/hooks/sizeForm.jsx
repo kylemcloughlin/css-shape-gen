@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 
 export default function Size(props) {
-  const  [size, setSize] = useState(0);
-  // const test = e => {
-  // console.log(e);
-  // setSize(e);
-  //   props.updateSize(e);
-  // }
+  const  [size, setSize] = useState(7);
+  useEffect(() => {
+    props.updateSize(size);
+  }
+  , [size])
+  
   
   return (
     <div className="grid-item-1">
       <h2 class='project-title'>CSS Shape Generator</h2>
     <div class='underline' id='size-underline'>
     <form className='size-input'>
-      <input  type='number' class='number-selector' placeholder={`${size}`} onChange={e => props.updateSize(e.target.value)}/>
+      <input  type='number' class='number-selector' value={size} onChange={e => setSize(e.target.value)}/>
       <label>Shape Size</label>
      </form>
     </div>
