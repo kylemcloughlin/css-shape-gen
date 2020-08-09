@@ -40,11 +40,11 @@ function Shadow(props) {
        <label id='blur-label'>Blur</label>
         <input type='number' id='blur' class='number-selector' onChange={e => { props.updateShadow( 1, e.target.value) }} disabled={disabled}/>
       </div> 
-        <div class='underline'>
+        <div class='underline' id='shadow-clr-underline'>
         <label id='shadow-clr-label'>Colour</label>
         <input id='shadow-clr' class='color-picker' type='color' disabled={disabled} onChange={e => { props.updateShadow(2, e.target.value) }}/>
        </div>
-        <div class='underline'>
+        <div class='underline' id='alpha-underline'>
         <label id='alpha-label'>Alpha</label>
         <input id='alpha'type='range' disabled={disabled} onChange={e => {props.updateShadow(3, e.target.value)}}/> 
         </div>

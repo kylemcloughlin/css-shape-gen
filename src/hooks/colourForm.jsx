@@ -37,15 +37,21 @@ function Colour(props) {
   return (
     <form className='grid-item-2'>
       <h3 class='box-title'>Fill</h3> 
-
       <input class='checkbox' type="checkbox" value="clr" value='clr' onChange={e => setValue(e.target.value)}/>
+      <div class='underline' id='clr-underline'>
        <label id='clr-label'style={clrStyle}>colour</label> 
-      <input id='clr-input' type='color' class='color-picker' style={clrStyle} disabled={disabled} onChange={e => { props.updateFill('colorCode', e.target.value) }}/> 
+       <input id='clr-input' type='color' class='color-picker' style={clrStyle} disabled={disabled} onChange={e => { props.updateFill('colorCode', e.target.value) }}/> 
+      </div> 
+      <div class='underline' id='img-underline'>
       <label id='img-label' style={imgStyle}>img</label> 
       <input type="checkbox" id='img-checkbox' value="img" onChange={e => setValue(e.target.checked)} />
+      </div>
+      <div class='underline' id='url-underline'>
       <label id='url-label' style={imgStyle}>URL</label>  
       <input class='input' id='img-input'  type='text' style={imgStyle} disabled={imgDisabled} onChange={e => { props.updateFill('imgURL', e.target.value) }}/>
-      <br/>
+      </div>
+      
+    
     </form>
   );
 }

@@ -94,26 +94,36 @@ html {
 
 #clr-label {
   position: absolute;
-  top: 2.5em;
+  bottom: 0.3em;
   left: 0.5em;
 }
 
 #clr-input {
   position: absolute;
-  top: 3em;
+  bottom: 0.3em;
   right: 0.5em;
+}
+
+#clr-underline {
+  position: absolute;
+  top: 4em;
 }
 
 #img-label {
   position: absolute;
-  top: 5em;
+  bottom: 0.3em;
   left: 0.5em;
 }
 
 #img-checkbox {
   position: absolute;
-  top: 6.5em;
+  bottom: 0.3em;
   right: 0.5em;
+}
+
+#img-underline {
+  position: absolute;
+  top: 6em;
 }
 
 #url-label {
@@ -128,6 +138,11 @@ html {
   right: 0.5em;
 }
 
+#url-underline {
+  position: absolute;
+  top: 9em;
+}
+
 .grid-item-3 {
   background-color: #fafafa;
   position: relative;
@@ -135,14 +150,24 @@ html {
 
 #border-width {
   position: absolute;
-  bottom: 5em;
+  bottom: 0.3em;
   right: 0.5em;
 }
 
 #border-width-label {
   position: absolute;
-  bottom: 4.2em;
+  bottom: 0.3em;
   left: 0.5em;
+}
+
+#border-w-underline {
+  position: absolute;
+  top: 4em;
+}
+
+#border-c-underline {
+  position: absolute;
+  top: 6em;
 }
 
 #border-color {
@@ -164,32 +189,36 @@ html {
 
 #blur-label {
   position: absolute;
-  top: 3em;
+  bottom: 0.3em;
   left: 0.5em;
 }
 
 #blur {
   position: absolute;
-  top: 4em;
+  bottom: 0.3em;
   right: 0.5em;
 }
 
 #blur-underline {
   position: absolute;
-  top: 0.2em;
-  left: 0.5em;
+  top: 4em;
 }
 
 #shadow-clr {
   position: absolute;
-  top: 6.5em;
+  bottom: 0.3em;
   right: 0.5em;
 }
 
 #shadow-clr-label {
   position: absolute;
-  top: 5.5em;
+  bottom: 0.3em;
   left: 0.5em;
+}
+
+#shadow-clr-underline {
+  position: absolute;
+  top: 6em;
 }
 
 #alpha {
@@ -202,6 +231,11 @@ html {
   position: absolute;
   bottom: 0.3em;
   left: 0.5em;
+}
+
+#alpha-underline {
+  position: absolute;
+  top: 9em;
 }
 
 .body {

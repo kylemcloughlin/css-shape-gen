@@ -1,14 +1,14 @@
-
 @mixin left {
   position: absolute;
   bottom: 0.3em;
   left: 0.5em;
 }
 
-@mixin adjustabletop($top) {
+@mixin adjustableTop($top) {
   position: absolute;
   top: $top;
 }
+
 @mixin adjustableLeft($top) {
   position: absolute;
   top: $top;
@@ -88,10 +88,12 @@ html {
   grid-gap: 1em;
   background-color: $firstColor;
 }
+
 .underline {
   width: 100%;
   border-bottom: 1px solid black;
 }
+
 .grid-item-1 {
   position: relative;
   background-color: $firstColor;
@@ -106,9 +108,11 @@ html {
   font-family: $firstFont;
   font-weight: 300;
 }
+
 .box-title {
   @include topLeft();
 }
+
 // .input-container {
 //   height: 100%;;
 // }
@@ -129,13 +133,15 @@ html {
   appearance: none;
   width: 1em;
   height: 1em;
-  border-radius: 50%; 
+  border-radius: 50%;
   border: black 1px solid;
   @include topRight();
-  background-color:$firstColor;
+  background-color: $firstColor;
+
   &:checked {
     background-color: $thirdColor;
   }
+
   &:focus {
     outline: none;
   }
@@ -143,37 +149,52 @@ html {
 
 .number-selector {
   appearance: none;
-  
+
   margin: 0em;
   padding-right: .3em;
   border: none;
   background-color: $firstColor;
   text-align: right;
+
   &:focus {
     outline: none;
-  appearance: none;
+    appearance: none;
 
   }
 
 }
+
 .color-picker {
   // border: none;
 }
 
+
 #clr-label {
-        @include adjustableLeft(2.5em);
+  @include left();
 }
+
 #clr-input {
-     @include adjustableRight(3em);
+  @include right();
 
 }
+
+#clr-underline {
+  @include adjustableTop(4em);
+
+}
+
 #img-label {
-   @include adjustableLeft(5em);
+  @include left();
 }
 
 #img-checkbox {
-      @include adjustableRight(6.5em);
+  @include right();
 }
+
+#img-underline { 
+  @include adjustableTop(6em);
+}
+
 #url-label {
   @include left()
 }
@@ -181,7 +202,10 @@ html {
 #img-input {
   @include right();
 }
-
+#url-underline {
+  @include adjustableTop(9em);
+  
+}
 .grid-item-3 {
   background-color: $firstColor;
   position: relative;
@@ -191,11 +215,21 @@ html {
 }
 
 #border-width {
-  @include middleRight();
+  @include right();
 }
 
 #border-width-label {
-  @include middleLeft();
+  @include left();
+
+
+}
+
+#border-w-underline {
+  @include adjustableTop(4em);
+}
+
+#border-c-underline {
+  @include adjustableTop(6em);
 
 }
 
@@ -217,25 +251,34 @@ html {
 }
 
 #blur-label {
-     @include adjustableLeft(3em);
+  @include left();
 
 }
 
 #blur {
-  @include adjustableRight(4em);
+  @include right();
+
 
 }
+
 #blur-underline {
-  @include adjustableLeft(0.2em);
+  @include adjustableTop(4em);
 
 }
+
 #shadow-clr {
-   @include adjustableRight(6.5em);
+  @include right();
+
 }
 
-#shadow-clr-label{
-     @include adjustableLeft(5.5em); 
+#shadow-clr-label {
+  @include left();
 }
+
+#shadow-clr-underline {
+  @include adjustableTop(6em);
+}
+
 #alpha {
   @include right();
 
@@ -246,14 +289,19 @@ html {
 
 }
 
+#alpha-underline {
+  @include adjustableTop(9em);
+}
+
 .body {
   width: 100%;
   display: grid;
   grid-template-columns: 2fr 2fr;
   grid-column-gap: .5em;
 }
+
 .shape-container {
-  background:#888; 
+  background: #888;
   width: 65%;
   height: 75%;
   position: absolute;
