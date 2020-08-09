@@ -33,10 +33,10 @@ function Border(props) {
         <input class='checkbox' type="checkbox" onClick={e => { setValue(e.target.checked) }} value='border' />
       </form>
       <form>
-       <label id='border-width-label'> Border Width</label>
-        <input class='number-picker' type='number' id='border-width' style={style} disabled={disabled} onChange={e => { props.updateBorder(1, e.target.value) }}/>
-        <label id='border-color-label'> Border Colour</label>
-        <input class='color-picker' id='border-color' type='color' style={style} disabled={disabled} onChange={e => { props.updateBorder(2, e.target.value) }}/>
+       <label id='border-width-label'>Width</label>
+        <input class='number-selector' type='number' id='border-width' style={style} disabled={disabled} onChange={e => { props.updateBorder(1, e.target.value) }}/>
+        <label id='border-color-label'>Colour</label>
+        <input class='color-picker' id='border-color' class='color-picker' type='color' style={style} disabled={disabled} onChange={e => { props.updateBorder(2, e.target.value) }}/>
       </form>
     </div>
   );

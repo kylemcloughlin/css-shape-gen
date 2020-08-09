@@ -1,9 +1,14 @@
+
 @mixin left {
   position: absolute;
   bottom: 0.3em;
   left: 0.5em;
 }
 
+@mixin adjustabletop($top) {
+  position: absolute;
+  top: $top;
+}
 @mixin adjustableLeft($top) {
   position: absolute;
   top: $top;
@@ -54,8 +59,8 @@
 }
 
 $firstColor : #fafafa;
-$secondColor: aqua;
-$thirdColor: white;
+$secondColor: red;
+$thirdColor: rgb(108, 108, 199);
 $firstFont : 'Open Sans',
 sans-serif;
 $secondFont : monospace;
@@ -81,20 +86,16 @@ html {
   grid-auto-rows: minmax(150px, auto);
   // grid-auto-columns: minmax(33em, 44em);
   grid-gap: 1em;
-
-  //this if for responsive d. add next
-
-  // background-color: brown;
-  // height: 20;
+  background-color: $firstColor;
 }
-
+.underline {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
 .grid-item-1 {
   position: relative;
   background-color: $firstColor;
 
-
-
-  // background-color: pink;
 
 }
 
@@ -125,8 +126,40 @@ html {
 }
 
 .checkbox {
-  @include topRight()
+  appearance: none;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%; 
+  border: black 1px solid;
+  @include topRight();
+  background-color:$firstColor;
+  &:checked {
+    background-color: $thirdColor;
+  }
+  &:focus {
+    outline: none;
+  }
 }
+
+.number-selector {
+  appearance: none;
+  
+  margin: 0em;
+  padding-right: .3em;
+  border: none;
+  background-color: $firstColor;
+  text-align: right;
+  &:focus {
+    outline: none;
+  appearance: none;
+
+  }
+
+}
+.color-picker {
+  // border: none;
+}
+
 #clr-label {
         @include adjustableLeft(2.5em);
 }
@@ -192,7 +225,10 @@ html {
   @include adjustableRight(4em);
 
 }
+#blur-underline {
+  @include adjustableLeft(0.2em);
 
+}
 #shadow-clr {
    @include adjustableRight(6.5em);
 }
@@ -213,7 +249,7 @@ html {
 .body {
   width: 100%;
   display: grid;
-  grid-template-columns: 2.5fr 1.5fr;
+  grid-template-columns: 2fr 2fr;
   grid-column-gap: .5em;
 }
 .shape-container {

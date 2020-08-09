@@ -40,7 +40,7 @@ function Colour(props) {
 
       <input class='checkbox' type="checkbox" value="clr" value='clr' onChange={e => setValue(e.target.value)}/>
        <label id='clr-label'style={clrStyle}>colour</label> 
-      <input id='clr-input'type='color' style={clrStyle} disabled={disabled} onChange={e => { props.updateFill('colorCode', e.target.value) }}/> 
+      <input id='clr-input' type='color' class='color-picker' style={clrStyle} disabled={disabled} onChange={e => { props.updateFill('colorCode', e.target.value) }}/> 
       <label id='img-label' style={imgStyle}>img</label> 
       <input type="checkbox" id='img-checkbox' value="img" onChange={e => setValue(e.target.checked)} />
       <label id='url-label' style={imgStyle}>URL</label>  
