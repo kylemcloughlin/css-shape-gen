@@ -44,7 +44,12 @@ html {
 .size-input {
   position: absolute;
   bottom: 0.3em;
-  left: 0.5em;
+  right: 0.5em;
+}
+
+#size-underline {
+  position: absolute;
+  top: 9em;
 }
 
 .grid-item-2 {
@@ -269,17 +274,33 @@ html {
 .shape-grid-container {
   position: relative;
   margin-top: .5em;
-  background-color: #fafafa;
   height: 30em;
 }
 
 .output-container {
   margin-top: .5em;
-  background-color: #fafafa;
 }
 
 .csshtml {
   font-family: monospace;
+}
+
+.html-css-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: monospace;
+  margin: 1em;
+  padding: 1em;
+  background-color: #888;
+  text-align: center;
+  width: 75%;
 }
 
 @media only screen and (max-width: 675px) {

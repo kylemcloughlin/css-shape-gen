@@ -76,12 +76,14 @@ return (
     </div>
     </div>
     <div className='output-container'>
-    <h4></h4>
-      <p>{seed.shape}</p>
-
-      <h4></h4>
+      <h4>HTML</h4>
+      <div class='html-css-container'>
+       
       <p className='csshtml'>{seed.html}</p>
-      <p className='csshtml'>{`${seed.css}`}</p>
+      </div>
+      <h4>CSS</h4>    
+      
+      <p class='html-css-container'>{`${seed.css}`}</p>
     </div>
   </div>
 );

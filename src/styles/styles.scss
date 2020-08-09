@@ -117,11 +117,13 @@ html {
 //   height: 100%;;
 // }
 .size-input {
-  @include left();
+  @include right();
 
 
 }
-
+#size-underline {
+  @include adjustableTop(9em);
+}
 .grid-item-2 {
   background-color: $firstColor;
   position: relative // background-color: blue;
@@ -317,7 +319,7 @@ html {
   position: relative;
   // position: none;
   margin-top: .5em;
-  background-color: $firstColor;
+  // background-color: $firstColor;
   height: 30em;
 
   // width: 50%;
@@ -326,7 +328,7 @@ html {
 
 .output-container {
   margin-top: .5em;
-  background-color: $firstColor;
+  // background-color: $firstColor;
 
 
 }
@@ -335,6 +337,18 @@ html {
   font-family: $secondFont;
 }
 
+.html-css-container {
+  @include flexCenter();
+  font-family: $secondFont;
+
+  margin: 1em;
+  padding: 1em;
+  background-color: #888;
+  
+  text-align: center;
+  width: 75%;
+
+}
 @media only screen and (max-width: 675px) {
   .body {
     grid-template-columns: 1fr;
