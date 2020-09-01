@@ -35,13 +35,14 @@ function App() {
   };
     
   
-  const handleShadow = (x, y, z) => {
-      let prevState = shadow;
+  const handleShadow = (x, rgb, z) => {
+    console.log(rgb);  
+    let prevState = shadow;
     return setShadow({
       shadow: prevState.shadow,
       shadowToggle: prevState.toggleBorder,
       shadowBlur: x,
-      shadowColor: y,
+      shadowColor: rgb,
       shadowAlpha: z
     })
     

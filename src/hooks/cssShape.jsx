@@ -47,11 +47,12 @@ function Shape(props) {
       }
       else if (e.shadow === true) {
         if (e.shadowToggle === true) {
-          newStyle.boxShadow = 'none';   
+          newStyle.boxShadow = 'none';  
+          console.log(`${e.shadowColor.r} ${e.shadowColor.g} ${e.shadowColor.b}`); 
         } else {
           // console.log(e.shadowColor.split(""))
-          newStyle.boxShadow = `50px 50px ${e.shadowBlur}px ${e.shadowAlpha}px ${e.shadowColor}`;
-          // newStyle.borderColor = e.borderColor;
+          newStyle.boxShadow = `50px 50px ${e.shadowBlur}px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha})`;
+          console.log(newStyle.boxShadow)
         }
       }
 
