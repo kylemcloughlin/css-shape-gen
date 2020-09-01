@@ -59,7 +59,7 @@ function Colour(props) {
 
       <div class='underline' id='url-underline'>
         <label id='url-label' style={imgStyle}>URL</label>
-        <input class='input' id='img-input' type='text' style={imgStyle} disabled={imgDisabled} onChange={e => { props.updateFill('imgURL', e.target.value) }} />
+        <input class='input' id='img-input' type='text' style={imgStyle} disabled={imgDisabled} onChange={e => { props.updateFill('imgURL', e.target.value) }} placeholder='absolute url only pls'/>
       </div>
 
 

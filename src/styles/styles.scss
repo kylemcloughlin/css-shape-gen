@@ -194,6 +194,20 @@ html {
 
 #img-checkbox {
   @include right();
+   appearance: none;
+   width: 1em;
+   height: 1em;
+   border-radius: 50%;
+   border: black 1px solid;
+   background-color: $firstColor;
+
+   &:checked {
+     background-color: $thirdColor;
+   }
+
+   &:focus {
+     outline: none;
+   }
 }
 
 #img-underline { 
@@ -206,6 +220,21 @@ html {
 
 #img-input {
   @include right();
+   appearance: none;
+
+   margin: 0em;
+   padding-right: .3em;
+   border: none;
+   background-color: $firstColor;
+   text-align: right;
+
+   &:focus {
+     outline: none;
+     appearance: none;
+
+   }
+
+
 }
 #url-underline {
   @include adjustableTop(9em);

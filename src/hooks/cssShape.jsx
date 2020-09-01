@@ -83,8 +83,18 @@ return (
       <p className='csshtml'>{seed.html}</p>
       </div>
       <h4>CSS</h4>    
-      
-      <p class='html-css-container'>{`${seed.css}`}</p>
+      <p class='html-css-container'>
+      {
+        seed.cssOutput.map(el => {
+     return(
+      <span>{el['style']}: {el['value']};</span> 
+
+     )
+         
+
+        })
+      }
+      </p>
     </div>
   </div>
 );

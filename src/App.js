@@ -101,14 +101,14 @@ function App() {
        
      })
     }
-  const witch = (x) => {
+  const switchFill = (x) => {
     let  prevState = toggleWhat;
     prevState.fill = x;
-    // console.log(x);
+
     if (x) {
       return setFill({
         type: 'color',
-        fillCode: 'url(http://csshexagon.com/img/meow.jpg)'
+        fillCode: 'url(https://images.freeimages.com/images/small-previews/2ae/bokeh-background-in-light-tan-rose-1635915.jpg)'
       });
 
     }
@@ -123,7 +123,7 @@ function App() {
       <header className='grid-container'>
       
         <Size updateSize={handleSize}/>
-        <Colour updateFill={handleFill} switch={witch}/>
+        <Colour updateFill={handleFill} switch={switchFill}/>
         <Border updateBorder={handleBorder} toggleBorder={toggleB}/>
         <Shadow updateShadow={handleShadow} toggleShadow={toggleS}/>
       </header> 
@@ -134,3 +134,5 @@ function App() {
 }
 
 export default App;
+
+
