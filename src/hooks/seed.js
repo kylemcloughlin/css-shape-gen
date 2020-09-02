@@ -3,12 +3,15 @@ let seed = {
   html: '<div class="square"></div>',
   css: { 
     background: 'gold',
-    height: '11em',
-    width: '11em', },
+    height: '50px',
+    width: '50px', },
 
     cssOutput: [{style:'background',  value:'gold'},
     {style:'height', value: '11em' },
-    {style: 'width', value: '11em'}]
+    {style: 'width', value: '11em'},
+    {style: 'border', value: ''},
+    {style: 'shadow', value: ''}]
+  
   };
 
 
