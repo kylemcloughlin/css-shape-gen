@@ -89,15 +89,38 @@ function Shape(props) {
     <div class='body'>
       <div class="shape-grid-container">
         <div class="shape-container">
-          <div className="shape" style={css} />
+          <div style={ {width: '79px', height: '0',
+          position: 'absolute',
+          top: '101.4px',
+          zIndex: 1,
+          borderBottom: '50px solid red',
+          borderLeft: '40px solid #888',
+          borderRight: '40px solid#888',
+    }}></div>
+          <div className="shape" id="octagon" style={css}/>
+             
+              <div style={{
+                width: '79px', height: '0',
+                position: 'absolute',
+                bottom: '100.51px',
+                zIndex: 1,
+                borderTop: '50px solid red',
+                borderLeft: '40px solid #888',
+                borderRight: '40px solid#888',
+              }}/>
         </div>
       </div>
+    
+    
       <div className='output-container'>
+     
+     
         <h4>HTML</h4>
         <div class='html-css-container'>
 
           <p className='csshtml'>{seed.html}</p>
         </div>
+     
         <h4>CSS</h4>
         <p class='html-css-container'>
           {

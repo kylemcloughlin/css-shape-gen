@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 
 export default function Size(props) {
-  const  [size, setSize] = useState(70);
+  const  [size, setSize] = useState(159);
   useEffect(() => {
     props.updateSize(size);
   }
