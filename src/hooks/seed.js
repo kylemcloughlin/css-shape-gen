@@ -2,10 +2,8 @@ let seed = {
   shape: 'square',
   html: '<div class="square"></div>',
   css: { 
-    background: 'purple',
     height: '100px',
-    width: '157px',
-   position: 'relative', },
+    width: '100px', },
 
     cssOutput: [{style:'background',  value:'gold'},
     {style:'height', value: '11em' },

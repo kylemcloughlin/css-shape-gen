@@ -308,12 +308,21 @@ html {
 
 .shape-grid-container {
   position: relative;
-  margin-top: .5em;
   height: 30em;
 }
 
-.shape {
+.octagon {
   position: absolute;
+}
+
+#outer {
+  overflow: hidden;
+}
+
+#inner {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background: #ee8c25;
 }
 
 .output-container {

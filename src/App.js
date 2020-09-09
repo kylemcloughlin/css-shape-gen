@@ -10,7 +10,7 @@ function App() {
   const [shape,setShape] = useState({shape: 'square'});
   const [shapeSize, setShapeSize] = useState({size: `${10}`});
   const [fill, setFill] = useState({ type: 'color', fillCode: '#444'});
-  const [border, setBorder] = useState({ border: true, borderToggle: false, borderWidth: '5', borderColor: 'none'});
+  const [border, setBorder] = useState({ border: true, borderToggle: false, borderWidth: 5, borderColor: 'none'});
   const [shadow, setShadow] = useState({ shadow: true,  shadowToggle: false, shadowBlur: 1, shadowColor: 'none', shadowAlpha: 2})
     const [toggleWhat, setToggleWhat] = useState({ featureToggle: null, toggle: false});
 

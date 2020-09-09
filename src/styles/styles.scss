@@ -393,16 +393,45 @@ html {
   // width: 10em;
   position: relative;
   // position: none;
-  margin-top: .5em;
+  // margin-top: .5em;
   // background-color: $firstColor;
   height: 30em;
 
   // width: 50%;
   ;
 }
+// #shape-top {
+// margin: 1em;
+//   position: absolute;
+//   z-index: 1;
+// }
 
-.shape {
+// .shape {
+//   position: absolute;
+// }
+
+// .shape-bottom {
+// margin: 1em;
+   
+//   position: absolute;
+//     z-index: 1;
+//     border-left: '45px solid #888';
+//     border-right: '45px solid#888';
+//     border-bottom: '50px solid red';
+
+// }
+
+.octagon {
   position: absolute;
+}
+
+#outer {
+  overflow: hidden;
+}
+
+#inner {
+  transform: rotate(45deg);
+  background: #ee8c25;
 }
 
 .output-container {

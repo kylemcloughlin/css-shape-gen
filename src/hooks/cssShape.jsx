@@ -1,10 +1,32 @@
 import React, { useState, useEffect } from "react";
 import seed from './seed.js';
 
+let updateOuterSquare = (size, borderWidth) => {
+  let newSize = [];
+  let add = borderWidth * 2;
+  let output = size.split('');
+  for (let x of output) {
+    console.log(isNaN(x));
+    if (isNaN(x)) {
+   
+
+    } else {
+      newSize.push(x);
+    }
+  }
+  newSize = newSize.join("")
+  return `${Number(newSize) + add}px `;
+}
 
 function Shape(props) {
   const [shapeState, setShapeState] = useState(props.props);
   const [css, setCSS] = useState(seed.css);
+  const [innerCss, setInnerCss] = useState(seed.css);
+  const [bottomCss, setBottomCSS] = useState({
+    width: '60px',
+    bottom: '100px',
+  });
+
   const [toggleBorderCss, setToggleBorderCss] = useState(true);
   const [toggleShadowCss, setToggleShadowCss] = useState(true);
 
@@ -12,16 +34,20 @@ function Shape(props) {
   let style = seed.css;
   useEffect(() => {
     let newStyle = {};
+    let innerStyle = {};
+    let bottomStyle = {};
     props.props.map(e => {
       // console.log('mapmapmap', e)
       if (e.size) {
         for (var x in style) {
           if (x === 'width') {
             newStyle[x] = `${e.size}px`;
-            seed.cssOutput[1].value = `${e.size}px`;
+            innerStyle[x] = `${e.size}px`;
+
           } else if (x === 'height') {
             newStyle[x] = `${e.size}px`;
-            seed.cssOutput[2].value = `${e.size}px`;
+            innerStyle[x] = `${e.size}px`;
+
           }
           else {
             newStyle[x] = style[x];
@@ -31,20 +57,28 @@ function Shape(props) {
         }
       }
       else if (e.type) {
-        newStyle.background = e.fillCode;
+       console.log('hit', e.type);
+        innerStyle.background = e.fillCode;
         seed.cssOutput[0].value = e.fillCode;
       }
       else if (e.border === true) {
         setToggleBorderCss(true);
 
         if (e.toggleBorder === true) {
-          newStyle.border = 'hidden';
+          innerStyle.border = 'hidden';
         } else if ((e.toggleBorder === false)) {
-          newStyle.border = `${e.borderWidth}px solid` + e.borderColor;
+          innerStyle.border = `${e.borderWidth}px solid` + e.borderColor;
+        
+        let withBorderSize = updateOuterSquare(newStyle.width, e.borderWidth);
+        // console.log('!!!', e.borderWidth);
+        newStyle.width =  withBorderSize;
+        newStyle.height = withBorderSize;
+
+        // console. log('</3', newHeight);
+
           let css = seed.cssOutput;
         for (let x in css) {
           if (css[x].style === 'border') {
-                console.log('<3');
             css[x].value = `${e.borderWidth}px solid ${e.borderColor}`;
               } 
 
@@ -78,10 +112,9 @@ function Shape(props) {
 
 
 
-    })
-
+    });
+    setInnerCss(innerStyle);
     setCSS(newStyle);
-
     setShapeState(props);
   }, [props]);
 
@@ -89,25 +122,9 @@ function Shape(props) {
     <div class='body'>
       <div class="shape-grid-container">
         <div class="shape-container">
-          <div style={ {width: '79px', height: '0',
-          position: 'absolute',
-          top: '101.4px',
-          zIndex: 1,
-          borderBottom: '50px solid red',
-          borderLeft: '40px solid #888',
-          borderRight: '40px solid#888',
-    }}></div>
-          <div className="shape" id="octagon" style={css}/>
-             
-              <div style={{
-                width: '79px', height: '0',
-                position: 'absolute',
-                bottom: '100.51px',
-                zIndex: 1,
-                borderTop: '50px solid red',
-                borderLeft: '40px solid #888',
-                borderRight: '40px solid#888',
-              }}/>
+          <div class='octagon' id='outer' style={css}>
+            <div class='octagon' id='inner'style={innerCss}></div>
+          </div>
         </div>
       </div>
     
@@ -126,11 +143,11 @@ function Shape(props) {
           {
             seed.cssOutput.map(el => {
               if (toggleBorderCss === true && el['style'] === 'border') {
-                console.log('shadow')
+              
                 
                 return (<span></span>)
               } else if (toggleShadowCss === true && el['style'] === 'shadow') {
-                console.log('shadow')
+           
                 return (<span></span>)
               } else {
                 return (
