@@ -123,7 +123,12 @@ function Shape(props) {
       <div class="shape-grid-container">
         <div class="shape-container">
           <div class='octagon' id='outer' style={css}>
-            <div class='octagon' id='inner'style={innerCss}></div>
+            <div class='border-helper' id='t'></div>
+            <div class='border-helper' id='b'></div>
+            <div class='border-helper' id='l'></div>
+            <div class='border-helper' id='r'></div>
+            <div class='octagon' id='inner'style={innerCss}>
+            </div>
           </div>
         </div>
       </div>

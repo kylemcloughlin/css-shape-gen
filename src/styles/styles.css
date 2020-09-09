@@ -317,12 +317,62 @@ html {
 
 #outer {
   overflow: hidden;
+  text-align: center;
 }
 
 #inner {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   background: #ee8c25;
+}
+
+.border-helper-r {
+  background-color: black;
+  height: 20px;
+  width: 5px;
+  position: absolute;
+  right: 0;
+}
+
+.border-helper {
+  background-color: black;
+  height: 20px;
+  width: 5px;
+  position: absolute;
+  z-index: 1;
+  margin: auto;
+}
+
+#l {
+  height: 62px;
+  width: 5px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#r {
+  height: 62px;
+  width: 5px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#t {
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 62px;
+  height: 5px;
+}
+
+#b {
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 62px;
+  height: 5px;
 }
 
 .output-container {
