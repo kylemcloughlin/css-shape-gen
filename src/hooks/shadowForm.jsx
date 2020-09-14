@@ -3,7 +3,7 @@ import { enabled } from "ansi-colors";
 
 function Shadow(props) {
   const [value, setValue] = useState(false);
-  const [blur, setBlur] = useState(1);
+  const [blur, setBlur] = useState(6);
   const [shadowColor, setShadowColor] = useState('#000000');
   const [toRGB, setToRGB] = useState();
   const [alpha, setAlpha] = useState(5);

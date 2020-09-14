@@ -335,25 +335,18 @@ html {
 }
 
 .border-helper {
-  background-color: black;
-  height: 20px;
-  width: 5px;
-  position: absolute;
+  position: absolute !important;
   z-index: 1;
-  margin: auto;
+  margin: auto !important;
 }
 
 #l {
-  height: 62px;
-  width: 5px;
-  left: 0;
-  top: 0;
-  bottom: 0;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
 }
 
 #r {
-  height: 62px;
-  width: 5px;
   right: 0;
   top: 0;
   bottom: 0;
@@ -363,16 +356,12 @@ html {
   top: 0;
   right: 0;
   left: 0;
-  width: 62px;
-  height: 5px;
 }
 
 #b {
   bottom: 0;
   right: 0;
   left: 0;
-  width: 62px;
-  height: 5px;
 }
 
 .output-container {
