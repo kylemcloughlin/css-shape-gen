@@ -465,20 +465,49 @@ right: 0;
 
 .csshtml {
   font-family: $secondFont;
+
 }
 
+.pseudo-shape-container {
+  position: relative;
+  left: 0em;
+  margin: 0em;
+}
+
+.pseudo-octagon {
+  position: relative;
+  left: 2em;
+  margin: 0em;
+  // padding: 0em;
+}
+.pseudo-border-helper {
+  position: relative;
+  left: 4em;
+  margin: 0em;
+  // padding: 0em;
+}
+
+.pseudo-css-element {
+    position: relative;
+    left: 4em;
+    margin: 1em;
+    padding: 1em;
+    margin-top: 2em;
+}
 .html-css-container {
-  @include flexCenter();
+  // @include flexCenter();
   font-family: $secondFont;
 
   margin: 1em;
   padding: 1em;
   background-color: #888;
 
-  text-align: center;
-  width: 75%;
+  // text-align: center;
+  width: 80%;
 
 }
+
+
 
 @media only screen and (max-width: 675px) {
   .body {

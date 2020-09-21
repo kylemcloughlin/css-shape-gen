@@ -21,14 +21,15 @@ function Border(props) {
     } else {
       setStyle({   opacity: '.5' });
       setDisabled(true);
-      
+    
       
     }
   }, [value, width, color]);
   
   const handleToggle = (e) => {
     setValue(e);
-    props.toggleBorder(value);
+      console.log('handle toggle', e)
+    props.toggleBorder(e);
   }
   return (
     <div className="grid-item-3">

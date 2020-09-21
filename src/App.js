@@ -91,7 +91,7 @@ function App() {
   }
  const toggleB = (x) => {
      let prevState = border;
-     console.log("TOGGLE", x);
+     console.log("toggleB", x);
     ;
      return setBorder({
        border: true,

@@ -6,7 +6,7 @@ let updateOuterSquare = (size, borderWidth) => {
   let add = borderWidth;
   let output = size.split('');
   for (let x of output) {
-    console.log(isNaN(x));
+
     if (isNaN(x)) {
 
 
@@ -50,6 +50,8 @@ function Shape(props) {
     let newTopBottomBorder = {};
     let baseSide = 62;
     props.props.map(e => {
+      console.log('e.border', e.border)
+
       if (e.size) {
 
 
@@ -71,24 +73,26 @@ function Shape(props) {
 
         }
         if (toggleBorderCss === false) {
-          console.log(baseSide);
+
           let update = e.size - 150;
           update = update * 0.44;
           baseSide = baseSide + update;
-          console.log(baseSide);
         }
       }
       else if (e.type) {
-        console.log('hit', e.type);
+        console.log('e.type', e.type);
         innerStyle.background = e.fillCode;
         seed.cssOutput[0].value = e.fillCode;
       }
       else if (e.border === true) {
-        setToggleBorderCss(true);
+        // setToggleBorderCss(true);
+        console.log('e.border === true');
 
-        if (e.toggleBorder === true) {
+        if (e.toggleBorder === false) {
+          setToggleBorderCss(false)
           innerStyle.border = 'hidden';
-        } else if ((e.toggleBorder === false)) {
+        } else if ((e.toggleBorder === true)) {
+          setToggleBorderCss(true);
           innerStyle.border = `${e.borderWidth}px solid` + e.borderColor;
           let withBorderSize = updateOuterSquare(newStyle.width, e.borderWidth * 2);
           newStyle.width = withBorderSize;
@@ -115,7 +119,6 @@ function Shape(props) {
             }
 
           }
-          setToggleBorderCss(true);
         } else {
           setToggleBorderCss(false);
         }
@@ -126,26 +129,24 @@ function Shape(props) {
           setToggleShadowCss(true);
         } else if (e.shadowToggle === undefined) {
           let css = seed.cssOutput;
-          console.log('hit pre')        
-          if ( toggleBorderCss === true) {
-              console.log('hit 1')
-            newStyle.boxShadow = `-41px 0px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}), 
-            41px 0px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}),
-            0px -41px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}),
-            0px 41px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha})`;
+          console.log('hit pre')
+          newStyle.boxShadow = `-41px 0px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}), 
+          41px 0px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}),
+          0px -41px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}),
+          0px 41px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha})`;
+          console.log('toggleBorderCss', toggleBorderCss);
+
+          if (toggleBorderCss === true) {
+            console.log('hit 1')
             innerStyle.boxShadow = `rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}) 0px 0px ${e.shadowBlur}px 6px `;
 
-            
-          } 
-          if ( toggleBorderCss === false) {
-            console.log('hit 2')
-            newStyle.boxShadow = `-41px 0px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}), 
-            41px 0px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}),
-            0px -41px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}),
-            0px 41px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha})`;
-            innerStyle.boxShadow = `rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}) 0px 0px ${e.shadowBlur}px 2px `;
+
           }
-          console.log('hit post')        
+          if (toggleBorderCss === false) {
+            console.log('hit 2')
+            innerStyle.boxShadow = `rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}) 0px 0px ${e.shadowBlur}px 4px `;
+          }
+
 
           for (let x in css) {
             if (css[x].style === 'shadow') {
@@ -168,7 +169,7 @@ function Shape(props) {
     setShapeState(props);
     setRightLeft(newRightLeftBorder);
     setTopBottom(newTopBottomBorder);
-  }, [props]);
+  }, [props, toggleBorderCss]);
 
   return (
     <div class='body'>
@@ -192,23 +193,47 @@ function Shape(props) {
         <h4>HTML</h4>
         <div class='html-css-container'>
 
-          <p className='csshtml'>{seed.html}</p>
+          <div className='csshtml'>
+            <p class='pseudo-shape-container'>{seed.htmlContainer[0]} </p>
+            <p class='pseudo-octagon'> {seed.htmlShape[0]}  </p>
+            {
+              toggleBorderCss ? (
+                seed.htmlBorder.map(el => {
+                  return (
+                    <div class='pseudo-border-helper'>
+                      {el}
+                    </div>
+                  );
+                })
+              ) : (console.log('html-border-helper ##2', toggleBorderCss))
+            }
+            <p class='pseudo-octagon'> {seed.htmlShape[1]}</p>
+            <p class='pseudo-shape-container'>{seed.htmlContainer[1]}</p>
+
+          </div>
         </div>
+
+
+
+
+
 
         <h4>CSS</h4>
         <p class='html-css-container'>
           {
             seed.cssOutput.map(el => {
-              if (toggleBorderCss === true && el['style'] === 'border') {
+              if (toggleBorderCss === false && el['style'] === 'border') {
 
 
-                return (<span></span>)
+                
               } else if (toggleShadowCss === true && el['style'] === 'shadow') {
 
-                return (<span></span>)
+                
               } else {
                 return (
-                  <span>{el['style']}: {el['value']};</span>
+               <div>
+                 <span class='pseudo-css-element'>{el['style']}: {el['value']};</span> <br/>
+               </div>
                 )
               }
 

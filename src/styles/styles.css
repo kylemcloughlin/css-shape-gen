@@ -372,22 +372,38 @@ html {
   font-family: monospace;
 }
 
+.pseudo-shape-container {
+  position: relative;
+  left: 0em;
+  margin: 0em;
+}
+
+.pseudo-octagon {
+  position: relative;
+  left: 2em;
+  margin: 0em;
+}
+
+.pseudo-border-helper {
+  position: relative;
+  left: 4em;
+  margin: 0em;
+}
+
+.pseudo-css-element {
+  position: relative;
+  left: 4em;
+  margin: 1em;
+  padding: 1em;
+  margin-top: 2em;
+}
+
 .html-css-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   font-family: monospace;
   margin: 1em;
   padding: 1em;
   background-color: #888;
-  text-align: center;
-  width: 75%;
+  width: 80%;
 }
 
 @media only screen and (max-width: 675px) {
