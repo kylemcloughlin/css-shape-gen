@@ -23,6 +23,7 @@ function Shape(props) {
   const [css, setCSS] = useState(seed.css);
   const [innerCss, setInnerCss] = useState(seed.css);
   const [toggleBorderCss, setToggleBorderCss] = useState(false);
+  const [toggleShadowCss, setToggleShadowCss] = useState(true);
   const [topBottom, setTopBottom] = useState({
     width: '62px',
     height: '5px',
@@ -38,17 +39,19 @@ function Shape(props) {
 
 
   })
-
-  const [toggleShadowCss, setToggleShadowCss] = useState(true);
-
-
   let style = seed.css;
+  let borderArray = [seed.top, seed.bottom, seed.right, seed.left]
+
+
+
   useEffect(() => {
     let newStyle = {};
     let innerStyle = {};
     let newRightLeftBorder = {};
     let newTopBottomBorder = {};
     let baseSide = 62;
+    // console.log(borderCSSSeed, 'line 52');
+    console.log(borderArray, 'line 53');
     props.props.map(e => {
       console.log('e.border', e.border)
 
@@ -59,11 +62,14 @@ function Shape(props) {
           if (x === 'width') {
             newStyle[x] = `${e.size}px`;
             innerStyle[x] = `${e.size}px`;
+            seed.outerCssOutput[0].value = `${e.size}px`;
+            seed.innerCssOutput[0].value = `${e.size}px`;
 
           } else if (x === 'height') {
             newStyle[x] = `${e.size}px`;
             innerStyle[x] = `${e.size}px`;
-
+            seed.outerCssOutput[1].value = `${e.size}px`;
+            seed.innerCssOutput[1].value = `${e.size}px`;
           }
 
           else {
@@ -72,7 +78,7 @@ function Shape(props) {
           }
 
         }
-        if (toggleBorderCss === false) {
+        if (toggleBorderCss === true) {
 
           let update = e.size - 150;
           update = update * 0.44;
@@ -82,7 +88,7 @@ function Shape(props) {
       else if (e.type) {
         console.log('e.type', e.type);
         innerStyle.background = e.fillCode;
-        seed.cssOutput[0].value = e.fillCode;
+        seed.innerCssOutput[2].value = e.fillCode;
       }
       else if (e.border === true) {
         // setToggleBorderCss(true);
@@ -99,9 +105,11 @@ function Shape(props) {
           newStyle.height = withBorderSize;
 
 
-          let css = seed.cssOutput;
+          let css = seed.innerCssOutput;
           for (let x in css) {
+            console.log("^^^^^^^^^^^^^^^^^^", css);
             if (css[x].style === 'border') {
+         
               css[x].value = `${e.borderWidth}px solid ${e.borderColor}`;
               newRightLeftBorder = {
                 height: `${baseSide}px`,
@@ -220,8 +228,11 @@ function Shape(props) {
 
         <h4>CSS</h4>
         <p class='html-css-container'>
-          {
-            seed.cssOutput.map(el => {
+          <div>{".octagon { position: absolute; }"}</div>
+        
+        <div>#outer {'{'}
+          </div>
+          { seed.outerCssOutput.map(el => {
               if (toggleBorderCss === false && el['style'] === 'border') {
 
 
@@ -240,6 +251,59 @@ function Shape(props) {
 
             })
           }
+          <div>{'}'}
+          
+          </div>
+          <div>#inner {'{'}
+          </div>
+          {seed.innerCssOutput.map(el => {
+     
+            if (toggleBorderCss === false && el['style'] === 'border') {
+
+
+
+            } else if (toggleShadowCss === true && el['style'] === 'shadow') {
+
+
+            } else {
+              return (
+                <div>
+                  <span class='pseudo-css-element'>{`${el['style']}`}: {`${el['value']}`};</span> <br />
+                </div>
+              )
+            }
+
+
+          })
+          }
+          <div>{'}'}
+          
+              {borderArray.map(el =>{
+               if (toggleBorderCss === true ) {
+                 let names = ['top', 'bottom', 'left', 'right'];
+                 let position = borderArray.indexOf(el); 
+                 let widthOrHieght = (names[position] === 'top' || names[position] === 'bottom') ? ('width') : ('hieght');
+                 let hieghtOrWidth = (names[position] === 'right' || names[position] === 'left') ? ('width') : ('hieght');
+
+                 console.log(names[position], widthOrHieght);
+                 return ( <div>
+                #{names[position]} {'{'}<br />
+                <span>{el[0].style}: {el[0].value}</span><br/>
+                <span >{el[1].style}: {el[1].value}</span><br />
+                <span >{el[2].style}: {el[2].value}</span><br />
+                <span> {widthOrHieght}: {topBottom.width}</span>
+                <span> {hieghtOrWidth}: {topBottom.height}</span>
+                <span> background-color: {topBottom.backgroundColor}</span>
+
+
+
+              
+                  <div>{'}'}</div>
+              </div>
+                )      
+              }
+                      })}}
+          </div>
         </p>
       </div>
     </div>
