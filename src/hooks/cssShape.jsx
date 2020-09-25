@@ -39,6 +39,7 @@ function Shape(props) {
 
 
   })
+  const [turnShadowOn, setTurnShadowOn] = useState(false)
   let style = seed.css;
   let borderArray = [seed.top, seed.bottom, seed.right, seed.left]
 
@@ -109,7 +110,7 @@ function Shape(props) {
           for (let x in css) {
             console.log("^^^^^^^^^^^^^^^^^^", css);
             if (css[x].style === 'border') {
-         
+
               css[x].value = `${e.borderWidth}px solid ${e.borderColor}`;
               newRightLeftBorder = {
                 height: `${baseSide}px`,
@@ -135,24 +136,29 @@ function Shape(props) {
         if (e.shadowToggle === true) {
           newStyle.boxShadow = 'none';
           setToggleShadowCss(true);
+          setTurnShadowOn(false)
+
         } else if (e.shadowToggle === undefined) {
+          setTurnShadowOn(true)
           let css = seed.cssOutput;
           console.log('hit pre')
           newStyle.boxShadow = `-41px 0px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}), 
           41px 0px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}),
           0px -41px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}),
           0px 41px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha})`;
-          console.log('toggleBorderCss', toggleBorderCss);
+          seed.outerCssOutput[3].value = newStyle.boxShadow;
 
           if (toggleBorderCss === true) {
             console.log('hit 1')
             innerStyle.boxShadow = `rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}) 0px 0px ${e.shadowBlur}px 6px `;
-
+            seed.innerCssOutput[5].value = `rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}) 0px 0px ${e.shadowBlur}px 6px `;
 
           }
           if (toggleBorderCss === false) {
             console.log('hit 2')
             innerStyle.boxShadow = `rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}) 0px 0px ${e.shadowBlur}px 4px `;
+            seed.innerCssOutput[5].value = `rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}) 0px 0px ${e.shadowBlur}px 4px `;
+            console.log('line 157', seed.innerCssOutput)
           }
 
 
@@ -228,42 +234,41 @@ function Shape(props) {
 
         <h4>CSS</h4>
         <p class='html-css-container'>
-          <div>{".octagon { position: absolute; }"}</div>
-        
-        <div>#outer {'{'}
-          </div>
-          { seed.outerCssOutput.map(el => {
-              if (toggleBorderCss === false && el['style'] === 'border') {
+          <div>.octagon{"{"}</div>
+          <div class='pseudo-css-element'> position: absolute; </div>
+          <div class='bottom-sign'> {'}'}</div>
 
-
-                
-              } else if (toggleShadowCss === true && el['style'] === 'shadow') {
-
-                
-              } else {
-                return (
-               <div>
-                 <span class='pseudo-css-element'>{el['style']}: {el['value']};</span> <br/>
-               </div>
-                )
-              }
-
-
-            })
-          }
-          <div>{'}'}
-          
-          </div>
-          <div>#inner {'{'}
-          </div>
-          {seed.innerCssOutput.map(el => {
-     
+          <div>#outer {'{'}</div>
+          {seed.outerCssOutput.map(el => {
             if (toggleBorderCss === false && el['style'] === 'border') {
 
 
 
-            } else if (toggleShadowCss === true && el['style'] === 'shadow') {
+            } else if (turnShadowOn === false && el['style'] === 'shadow') {
 
+
+            } else {
+              return (
+                <div>
+                  <span class='pseudo-css-element'>{el['style']}: {el['value']};</span> <br />
+                </div>
+              )
+            }
+
+
+          })
+          }
+          <div class='bottom-sign'> {'}'}</div>
+          <div>#inner {'{'}
+          </div>
+          {seed.innerCssOutput.map(el => {
+
+            if (toggleBorderCss === false && el['style'] === 'border') {
+
+
+
+            } else if (turnShadowOn === false && el['style'] === 'shadow') {
+              console.log('hit')
 
             } else {
               return (
@@ -276,33 +281,35 @@ function Shape(props) {
 
           })
           }
-          <div>{'}'}
-          
-              {borderArray.map(el =>{
-               if (toggleBorderCss === true ) {
-                 let names = ['top', 'bottom', 'left', 'right'];
-                 let position = borderArray.indexOf(el); 
-                 let widthOrHieght = (names[position] === 'top' || names[position] === 'bottom') ? ('width') : ('hieght');
-                 let hieghtOrWidth = (names[position] === 'right' || names[position] === 'left') ? ('width') : ('hieght');
+          <div class='bottom-sign'> {'}'}</div>
+          <div>
+         
 
-                 console.log(names[position], widthOrHieght);
-                 return ( <div>
-                #{names[position]} {'{'}<br />
-                <span>{el[0].style}: {el[0].value}</span><br/>
-                <span >{el[1].style}: {el[1].value}</span><br />
-                <span >{el[2].style}: {el[2].value}</span><br />
-                <span> {widthOrHieght}: {topBottom.width}</span>
-                <span> {hieghtOrWidth}: {topBottom.height}</span>
-                <span> background-color: {topBottom.backgroundColor}</span>
+            {borderArray.map(el => {
+              if (toggleBorderCss === true) {
+                let names = ['top', 'bottom', 'left', 'right'];
+                let position = borderArray.indexOf(el);
+                let widthOrHieght = (names[position] === 'top' || names[position] === 'bottom') ? ('width') : ('hieght');
+                let hieghtOrWidth = (names[position] === 'right' || names[position] === 'left') ? ('width') : ('hieght');
+
+                console.log(names[position], widthOrHieght);
+                return (<div class='pseudo-border-helper-css'>
+                  #{names[position]} {'{'}<br />
+                  <span class='pseudo-css-element'>{el[0].style}: {el[0].value};</span><br />
+                  <span class='pseudo-css-element'>{el[1].style}: {el[1].value};</span><br />
+                  <span class='pseudo-css-element'>{el[2].style}: {el[2].value};</span><br />
+                  <span class='pseudo-css-element'> {widthOrHieght}: {topBottom.width};</span><br />
+                  <span class='pseudo-css-element'> {hieghtOrWidth}: {topBottom.height};</span><br />
+                  <span class='pseudo-css-element'> background-color: {topBottom.backgroundColor};</span><br />
 
 
 
-              
-                  <div>{'}'}</div>
-              </div>
-                )      
+
+                  <div class='bottom-sign'>{'}'}</div>
+                </div>
+                )
               }
-                      })}}
+            })}
           </div>
         </p>
       </div>

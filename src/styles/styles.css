@@ -9,6 +9,10 @@ html {
   font-family: "Open Sans", sans-serif;
 }
 
+.body {
+  margin: 0em;
+}
+
 .grid-container {
   display: -ms-grid;
   display: grid;
@@ -34,11 +38,13 @@ html {
   width: 100%;
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
+  position: absolute;
+  top: -1em;
 }
 
 .box-title {
   position: absolute;
-  top: 0;
+  top: -1.2em;
   left: 0.5em;
 }
 
@@ -68,7 +74,6 @@ html {
   border-radius: 50%;
   border: black 1px solid;
   position: absolute;
-  top: 0.3em;
   right: 0.5em;
   background-color: #fafafa;
 }
@@ -393,8 +398,7 @@ html {
   position: relative;
   left: 4em;
   margin: 1em;
-  padding: 1em;
-  margin-top: 2em;
+  margin-top: 0em;
 }
 
 .html-css-container {
@@ -402,7 +406,11 @@ html {
   margin: 1em;
   padding: 1em;
   background-color: #888;
-  width: 80%;
+  width: 85%;
+}
+
+.bottom-sign {
+  margin-bottom: .5em;
 }
 
 @media only screen and (max-width: 675px) {
@@ -429,7 +437,7 @@ html {
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 480px) {
   .grid-container {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;

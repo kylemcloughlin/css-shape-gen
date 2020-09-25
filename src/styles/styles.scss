@@ -41,13 +41,13 @@
 
 @mixin topLeft {
   position: absolute;
-  top: 0;
+  top: -1.2em;
   left: 0.5em;
 }
 
 @mixin topRight {
   position: absolute;
-  top: 0.3em;
+  // top: 0.3em;
   right: 0.5em;
 }
 
@@ -113,7 +113,9 @@ html {
 //   // }
 // }
 
-.body {}
+.body {
+ margin: 0em; 
+}
 
 .grid-container {
   display: grid;
@@ -144,6 +146,8 @@ html {
   width: 100%;
   font-family: $firstFont;
   font-weight: 300;
+  position: absolute;
+  top: -1em;
 }
 
 .box-title {
@@ -491,23 +495,20 @@ right: 0;
     position: relative;
     left: 4em;
     margin: 1em;
-    padding: 1em;
-    margin-top: 2em;
+    margin-top: 0em;
 }
 .html-css-container {
-  // @include flexCenter();
   font-family: $secondFont;
 
   margin: 1em;
   padding: 1em;
   background-color: #888;
-
-  // text-align: center;
-  width: 80%;
+  width: 85%;
 
 }
-
-
+.bottom-sign {
+  margin-bottom: .5em;
+}
 
 @media only screen and (max-width: 675px) {
   .body {
@@ -551,7 +552,7 @@ right: 0;
   // }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 480px) {
   .grid-container {
     grid-template-columns: 1fr;
     grid-template-areas:

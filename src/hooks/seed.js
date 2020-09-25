@@ -32,10 +32,10 @@ let seed = {
       style: 'overflow',
       value: 'hidden'
     },
-    {
-      style: 'shadow',
-      value: ''
-    }
+     {
+       style: 'shadow',
+       value: ''
+     }
   ],
 
   innerCssOutput: [{
