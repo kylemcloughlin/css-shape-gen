@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 
 
 
@@ -11,7 +11,7 @@ function Colour(props) {
   const [clrStyle, setClrStyle] = useState({ opacity: '1' });
   const [imgStyle, setImgStyle] = useState({ opacity: '.5' });
   useEffect(() => {
-    console.log(value);
+    // console.log(value);
     if (value === true) {
     
       props.switch(value);
@@ -23,7 +23,7 @@ function Colour(props) {
   }, [value, color]);
 
   const handleSwitch = (x, y) => {
-    console.log(x, y);
+    // console.log(x, y);
     if (x === 'clr' && y === true) {
       setDisabled(false);
       setImgDisabled(true);
@@ -43,23 +43,23 @@ function Colour(props) {
 
   return (
     <form className='grid-item-2'>
-      <h3 class='box-title'>Fill</h3>
-      <input class='checkbox' type="checkbox" checked={!disabled} onChange={e => handleSwitch('clr', e.target.checked)} />
+      <h3 className='box-title'>Fill</h3>
+      <input className='checkbox' type="checkbox" checked={!disabled} onChange={e => handleSwitch('clr', e.target.checked)} />
 
 
-      <div class='underline' id='clr-underline'>
+      <div className='underline' id='clr-underline'>
         <label id='clr-label' style={clrStyle}>colour</label>
-        <input id='clr-input' type='color' class='color-picker' value={color} style={clrStyle} disabled={disabled} onChange={e => { setColor(e.target.value) }} />
+        <input id='clr-input' type='color' className='color-picker' value={color} style={clrStyle} disabled={disabled} onChange={e => { setColor(e.target.value) }} />
       </div>
 
-      <div class='underline' id='img-underline'>
+      <div className='underline' id='img-underline'>
         <label id='img-label' style={imgStyle}>img</label>
         <input type="checkbox" id='img-checkbox' checked={!imgDisabled} onChange={e => handleSwitch('img', e.target.checked)} />
       </div>
 
-      <div class='underline' id='url-underline'>
+      <div className='underline' id='url-underline'>
         <label id='url-label' style={imgStyle}>URL</label>
-        <input class='input' id='img-input' type='text' style={imgStyle} disabled={imgDisabled} onChange={e => { props.updateFill('imgURL', e.target.value) }} placeholder='absolute url only pls'/>
+        <input className='input' id='img-input' type='text' style={imgStyle} disabled={imgDisabled} onChange={e => { props.updateFill('imgURL', e.target.value) }} placeholder='absolute url only pls'/>
       </div>
 
 

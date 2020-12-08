@@ -6,15 +6,15 @@ export default function Size(props) {
   useEffect(() => {
     props.updateSize(size);
   }
-  , [size])
+  ,[size]);
   
   
   return (
     <div className="grid-item-1">
-      <h2 class='project-title'>CSS Shape Generator</h2>
-    <div class='underline' id='size-underline'>
+      <h2 className='project-title'>CSS Shape Generator</h2>
+    <div className='underline' id='size-underline'>
     <form className='size-input'>
-      <input  type='number' class='number-selector' value={size} onChange={e => setSize(e.target.value)}/>
+      <input  type='number' className='number-selector' value={size} onChange={e => setSize(e.target.value)}/>
       <label>Shape Size</label>
      </form>
     </div>

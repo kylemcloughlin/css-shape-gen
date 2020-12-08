@@ -16,7 +16,7 @@ function Border(props) {
       props.updateBorder(width, color);
       // props.toggleBorder(value);
       // props.updateBorder(2, color);
-      console.log( width, color);
+      // console.log( width, color);
       // setWidth(5);
     } else {
       setStyle({   opacity: '.5' });
@@ -28,23 +28,23 @@ function Border(props) {
   
   const handleToggle = (e) => {
     setValue(e);
-      console.log('handle toggle', e)
+      // console.log('handle toggle', e)
     props.toggleBorder(e);
   }
   return (
     <div className="grid-item-3">
       <form>
-        <h3 class='box-title'>Border</h3>
-        <input class='checkbox' type="checkbox" onClick={e => { handleToggle(e.target.checked) }} value='border' />
+        <h3 className='box-title'>Border</h3>
+        <input className='checkbox' type="checkbox" onClick={e => { handleToggle(e.target.checked) }} value='border' />
       </form>
       <form>
-        <div class='underline' id='border-w-underline'>
+        <div className='underline' id='border-w-underline'>
         <label id='border-width-label'>Width</label>
-        <input class='number-selector' type='number' id='border-width' value={width} style={style} disabled={disabled} onChange={e => { setWidth(e.target.value)}}/>
+        <input className='number-selector' type='number' id='border-width' value={width} style={style} disabled={disabled} onChange={e => { setWidth(e.target.value)}}/>
         </div>
-       <div class='underline' id='border-c-underline'>
+       <div className='underline' id='border-c-underline'>
         <label id='border-color-label'>Colour</label>
-        <input class='color-picker' id='border-color' class='color-picker' type='color' value={color} style={style} disabled={disabled} onChange={e => { setColor(e.target.value)}}/>
+        <input className='color-picker' id='border-color' className='color-picker' type='color' value={color} style={style} disabled={disabled} onChange={e => { setColor(e.target.value)}}/>
        </div>
       </form>
     </div>

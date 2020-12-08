@@ -1,19 +1,19 @@
 let seed = {
   shape: 'square',
 
-  htmlContainer: [" <div class='shape-container'> ",
+  htmlContainer: [" <div className='shape-container'> ",
     "</div>"
   ],
   htmlShape: [
-    "<div class='octagon' id='outer' style={css}>",
-    "<div class='octagon' id='inner' style={innerCss}>",
+    "<div className='octagon' id='outer' style={css}>",
+    "<div className='octagon' id='inner' style={innerCss}>",
   ],
 
   htmlBorder: [
     "<div className='border-helper' id='t'></div>",
     "<div className='border-helper' id='b'></div>",
     "<div className='border-helper' id='l'></div>",
-    "<div className='border-helper' id='r'></div>",
+    "<div classNamee='border-helper' id='r'></div>",
   ],
   css: {
     height: '100px',

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState,  } from 'react';
 import Shape from './hooks/cssShape.jsx';
 import Size from './hooks/sizeForm.jsx';
 import Colour from './hooks/colourForm.jsx';
@@ -7,18 +7,20 @@ import Border from './hooks/borderForm.jsx';
 import './styles/styles.css';
 
 function App() {
-  const [shape,setShape] = useState({shape: 'square'});
+  const shape = useState({shape: 'square'});
   const [shapeSize, setShapeSize] = useState({size: `${10}`});
   const [fill, setFill] = useState({ type: 'color', fillCode: '#444'});
   const [border, setBorder] = useState({ border: true, borderToggle: false, borderWidth: 5, borderColor: 'none'});
   const [shadow, setShadow] = useState({ shadow: true,  shadowToggle: false, shadowBlur: 1, shadowColor: 'none', shadowAlpha: 2})
-    const [toggleWhat, setToggleWhat] = useState({ featureToggle: null, toggle: false});
+    const toggleWhat = useState({ featureToggle: null, toggle: false});
 
   const handleSize = x => {
     setShapeSize({size: Number(x)});
   }
   const handleFill = (x, y) => {
-  setFill({
+
+  // let background =  x === 'imgURl' ? (${y})`) : (y);
+    setFill({
     type: x,
     fillCode: y
   });
@@ -36,7 +38,7 @@ function App() {
     
   
   const handleShadow = (x, rgb, z) => {
-    console.log(rgb);  
+    // console.log(rgb);  
     let prevState = shadow;
     return setShadow({
       shadow: prevState.shadow,
@@ -79,7 +81,7 @@ function App() {
   }
   const toggleS = (x) => {
     let prevState = shadow;
-    console.log('TOGGGLE SHADOW', x);
+    // console.log('TOGGGLE SHADOW', x);
     return setShadow({
       shadow: true,
       shadowToggle: x,
@@ -91,7 +93,7 @@ function App() {
   }
  const toggleB = (x) => {
      let prevState = border;
-     console.log("toggleB", x);
+    //  console.log("toggleB", x);
     ;
      return setBorder({
        border: true,
