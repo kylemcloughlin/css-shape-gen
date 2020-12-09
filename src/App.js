@@ -9,7 +9,7 @@ import './styles/styles.css';
 function App() {
   const shape = useState({shape: 'square'});
   const [shapeSize, setShapeSize] = useState({size: `${10}`});
-  const [fill, setFill] = useState({ type: 'color', fillCode: '#444'});
+  const [fill, setFill] = useState({ type: 'colorCode', fillCode: '#444'});
   const [border, setBorder] = useState({ border: true, borderToggle: false, borderWidth: 5, borderColor: 'none'});
   const [shadow, setShadow] = useState({ shadow: true,  shadowToggle: false, shadowBlur: 1, shadowColor: 'none', shadowAlpha: 2})
     const toggleWhat = useState({ featureToggle: null, toggle: false});
@@ -109,8 +109,8 @@ function App() {
 
     if (x) {
       return setFill({
-        type: 'color',
-        fillCode: 'url(https://images.freeimages.com/images/small-previews/2ae/bokeh-background-in-light-tan-rose-1635915.jpg)'
+        type: 'imgURL',
+        fillCode: 'https://img1.nickiswift.com/img/uploads/2018/03/the-truth-about-what-happened-to-chad-kroeger-780x438_rev1.jpg'
       });
 
     }

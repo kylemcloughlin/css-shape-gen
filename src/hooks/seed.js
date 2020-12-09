@@ -45,6 +45,10 @@ let seed = {
     {
       style: 'height',
       value: '666px'
+    }, 
+    {
+      style: 'background-position',
+      value: 'center'
     },
     {
       style: 'background',

@@ -51,8 +51,16 @@ function Shape(props) {
     let newRightLeftBorder = {};
     let newTopBottomBorder = {};
     let baseSide = 62;
-    props.props.map(e => {
 
+    props.props.map(e => {
+      if(e.type === 'imgURL'){
+        console.log('BIG HIT YA');
+        console.log(e.type)
+        innerStyle.background = 'pink';
+        console.log(e.fillCode);
+        console.log('60',seed.innerCssOutput[2].value);
+
+      }
       if (e.size) {
 
 
@@ -84,9 +92,24 @@ function Shape(props) {
         }
       }
       else if (e.type) {
-        innerStyle.background = e.fillCode;
-        seed.innerCssOutput[2].value = e.fillCode;
-      }
+        if (e.type === 'imgURL') {
+         
+          innerStyle.background = `url(${e.fillCode}) center center`;
+          innerStyle.backgroundPosition = 'center';
+         
+        } else {
+
+          innerStyle.background = e.fillCode;
+          seed.innerCssOutput[2].value = e.fillCode;
+          console.log('96',seed.innerCssOutput[2].value);
+        }
+          
+      } 
+      // else if (e.type === 'imgURL') {
+      //   console.log(e.type)
+      //   console.log(e.fillCode);
+      //      seed.innerCssOutput[2].value = `url(${e.fillCode})`;
+      // }
       else if (e.border === true) {
         // setToggleBorderCss(true);
 
@@ -137,9 +160,10 @@ function Shape(props) {
           setTurnShadowOn(true)
           let css = seed.cssOutput;
           newStyle.boxShadow = `-41px 0px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}), 
-          41px 0px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}),
+                 41px 0px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}),
           0px -41px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha}),
           0px 41px ${e.shadowBlur}px -37px rgba(${e.shadowColor.r},${e.shadowColor.g},${e.shadowColor.b},0.${e.shadowAlpha})`;
+        
           seed.outerCssOutput[3].value = newStyle.boxShadow;
 
           if (toggleBorderCss === true) {
@@ -168,6 +192,9 @@ function Shape(props) {
 
 
     });
+
+    // console.log(seed.innerCssOutput[2].value)
+
     setInnerCss(innerStyle);
     setCSS(newStyle);
     setShapeState(props);
