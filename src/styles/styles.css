@@ -105,9 +105,9 @@ html {
 }
 
 #size {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
   position: relative;
   bottom: -.1em;
   width: 2.5em;
