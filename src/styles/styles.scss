@@ -209,9 +209,29 @@ html {
   }
 
 }
+#size {
+  appearance: none;
+position: relative;
+bottom: -.1em;
+// margin: 0em;
+  width: 2.5em;
+  padding-right: .3em;
 
-.color-picker {
-  // border: none;
+  border: none;
+  background-color: transparent;
+  text-align: right;
+  font-size: 3em;
+  // height: 5em;
+  &:focus {
+    outline: none;
+    appearance: none;
+
+  }
+
+  }
+.size-label {
+position: relative;
+bottom: -0.3em;
 }
 
 
@@ -252,7 +272,7 @@ html {
 }
 
 #img-underline {
-  @include adjustableTop(6em);
+  @include adjustableTop(6.5em);
 }
 
 #url-label {
@@ -308,7 +328,7 @@ html {
 }
 
 #border-c-underline {
-  @include adjustableTop(6em);
+  @include adjustableTop(6.5em);
 
 }
 
@@ -357,7 +377,7 @@ html {
 }
 
 #shadow-clr-underline {
-  @include adjustableTop(6em);
+  @include adjustableTop(6.5em);
 }
 
 #alpha {

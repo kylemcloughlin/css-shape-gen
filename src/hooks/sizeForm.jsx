@@ -14,8 +14,8 @@ export default function Size(props) {
       <h2 className='project-title'>CSS Shape Generator</h2>
     <div className='underline' id='size-underline'>
     <form className='size-input'>
-      <input  type='number' className='number-selector' value={size} onChange={e => setSize(e.target.value)}/>
-      <label>Shape Size</label>
+      <input  type='number' id='size' value={size} onChange={e => setSize(e.target.value)}/>
+      <label className='size-label'>Shape Size</label>
      </form>
     </div>
     
