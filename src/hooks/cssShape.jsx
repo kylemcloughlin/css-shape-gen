@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import seed from './seed.js';
+import { ConsoleWriter } from "istanbul-lib-report";
 
 let updateOuterSquare = (size, borderWidth) => {
   let newSize = [];
@@ -201,7 +202,10 @@ function Shape(props) {
     setRightLeft(newRightLeftBorder);
     setTopBottom(newTopBottomBorder);
   }, [props, toggleBorderCss]);
+  let copyHTML = (e) => {
+ 
 
+  }
   return (
     <div className='body'>
       <div className="shape-grid-container">
@@ -223,7 +227,7 @@ function Shape(props) {
 
         <h4>HTML</h4>
         <div className='html-css-container'>
-
+          <button onClick={ e => copyHTML(e)}>copy</button>
           <div className='csshtml'>
             <p className='pseudo-shape-container'>{seed.htmlContainer[0]} </p>
             <p className='pseudo-octagon'> {seed.htmlShape[0]}  </p>
