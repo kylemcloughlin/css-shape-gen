@@ -1,25 +1,13 @@
 import React, { useState, useEffect } from "react";
-import seed from './seed.js';
-import { ConsoleWriter } from "istanbul-lib-report";
+import seed from '../seed.js';
 
-let updateOuterSquare = (size, borderWidth) => {
-  let newSize = [];
-  let add = borderWidth;
-  let output = size.split('');
-  for (let x of output) {
-
-    if (isNaN(x)) {
+import ShapeLogic from './ShapeLogic.js';
 
 
-    } else {
-      newSize.push(x);
-    }
-  }
-  newSize = newSize.join("")
-  return `${Number(newSize) + add}px `;
-}
 
 function Shape(props) {
+  let {updateOuterSquare} = ShapeLogic();
+
   const [shapeState, setShapeState] = useState(props.props);
   const [css, setCSS] = useState(seed.css);
   const [innerCss, setInnerCss] = useState(seed.css);
@@ -54,12 +42,9 @@ function Shape(props) {
     let baseSide = 62;
 
     props.props.map(e => {
+      
       if(e.type === 'imgURL'){
-        console.log('BIG HIT YA');
-        console.log(e.type)
         innerStyle.background = 'pink';
-        console.log(e.fillCode);
-        console.log('60',seed.innerCssOutput[2].value);
 
       }
       if (e.size) {
@@ -94,7 +79,6 @@ function Shape(props) {
       }
       else if (e.type) {
         if (e.type === 'imgURL') {
-         
           innerStyle.background = `url(${e.fillCode}) center center`;
           innerStyle.backgroundPosition = 'center';
          
@@ -102,15 +86,11 @@ function Shape(props) {
 
           innerStyle.background = e.fillCode;
           seed.innerCssOutput[2].value = e.fillCode;
-          console.log('96',seed.innerCssOutput[2].value);
+      
         }
           
       } 
-      // else if (e.type === 'imgURL') {
-      //   console.log(e.type)
-      //   console.log(e.fillCode);
-      //      seed.innerCssOutput[2].value = `url(${e.fillCode})`;
-      // }
+
       else if (e.border === true) {
         // setToggleBorderCss(true);
 
@@ -194,7 +174,6 @@ function Shape(props) {
 
     });
 
-    // console.log(seed.innerCssOutput[2].value)
 
     setInnerCss(innerStyle);
     setCSS(newStyle);
@@ -227,7 +206,7 @@ function Shape(props) {
 
         <h4>HTML</h4>
         <div className='html-css-container'>
-          <button onClick={ e => copyHTML(e)}>copy</button>
+          {/* <button onClick={ e => copyHTML(e)}>copy</button> */}
           <div className='csshtml'>
             <p className='pseudo-shape-container'>{seed.htmlContainer[0]} </p>
             <p className='pseudo-octagon'> {seed.htmlShape[0]}  </p>
@@ -241,7 +220,7 @@ function Shape(props) {
                     </div>
                   );
                 })
-              ) : (console.log())
+              ) : (<div/>)
             }
             <p className='pseudo-octagon'> {seed.htmlShape[1]}</p>
             <p className='pseudo-shape-container'>{seed.htmlContainer[1]}</p>
